@@ -47,7 +47,7 @@ CLIも英語が初期値です。従来と同じ日本語版を使うときは `
 
 ## 最初の実験「名づける前の一言」
 
-短い日本語の対話を、共通指示のみ・ThresholdFieldありの2条件で読み比べます。新しい試行の既定モデルは `gpt-6-sol` です。次のコマンドで、実際に渡す2件の内容を手元で確認できます。[実験手順](../experimental/naming-hold/README.md)
+短い日本語の対話を、共通指示のみ・ThresholdFieldありの2条件で読み比べます。新しい試行の既定モデルは `gpt-6-sol` です。最初の実行では、どちらも感情を決めつけず、共通指示は「何が」、ThresholdFieldありは「どの瞬間が」と聞き返しました。次のコマンドで、実際に渡す2件の内容を手元で確認できます。[実験手順](../experimental/naming-hold/README.md) · [2件の返答と観察](../experimental/naming-hold/observations.md)
 
 ```sh
 python3 -I -S experimental/naming-hold/run.py

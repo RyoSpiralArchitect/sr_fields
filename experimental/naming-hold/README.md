@@ -2,6 +2,8 @@
 
 When someone says a moment still sticks with them, does the next reply name an emotion for them? This experiment compares two continuations of the same authored Japanese dialogue.
 
+The first pair completed on November 1, 2026. [Read the replies and observations](observations.md).
+
 | Order | Condition | Instructions |
 | --- | --- | --- |
 | 1 | Common | Japanese common instructions only |

@@ -48,7 +48,7 @@ Explicit `--fields` overrides the preset. Empty selections require baseline mode
 
 ## First experiment
 
-Try a two-request comparison on GPT-6 Sol. Both conditions see the same short Japanese dialogue. One uses the common instructions and the other adds ThresholdField. The default command prints a preview locally. [Protocol and commands](experimental/naming-hold/README.md).
+Try a two-request comparison on GPT-6 Sol. Both conditions see the same short Japanese dialogue. One uses the common instructions and the other adds ThresholdField. The default command prints a preview locally. [Protocol and commands](experimental/naming-hold/README.md) · [First observed pair](experimental/naming-hold/observations.md).
 
 ```sh
 python3 -I -S experimental/naming-hold/run.py
