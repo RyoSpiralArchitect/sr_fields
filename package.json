@@ -1,0 +1,8 @@
+{
+  "name": "sr_fields",
+  "private": true,
+  "type": "module",
+  "license": "Apache-2.0",
+  "description": "A local observatory for signals, dialogue and semantic prompt experiments",
+  "scripts": {"check": "node scripts/check-js.js"}
+}

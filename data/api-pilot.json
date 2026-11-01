@@ -1,0 +1,161 @@
+{
+  "version": "historical-private-source-pilot-v1",
+  "prompt_reproducibility": "unavailable_private_source_prompts_not_distributed",
+  "not_an_evaluation_of_public_prompts": true,
+  "model": "gpt-5.4-mini-2026-03-17",
+  "attempted": 18,
+  "completed": 17,
+  "human_evaluation": "NOT_RATED",
+  "cases": [
+    {
+      "id": "c01",
+      "title": "まだ言えない引っかかり",
+      "input": "昨日の打ち合わせ、悪かったわけじゃない。でも、終わってから少しだけ引っかかってる。まだ何がとは言えない。",
+      "responses": {
+        "field_pack": {
+          "status": "completed",
+          "reply": "引っかかりが少し残っているのですね。今は無理に言葉にしなくて大丈夫です。必要なら、何が引っかかったかを一つだけ挙げるところから一緒に整理できます。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 73
+        },
+        "baseline": {
+          "status": "completed",
+          "reply": "その感覚、自然です。無理に言葉にしなくて大丈夫です。少し時間を置いて、何が引っかかるのかを整理してみてください。必要なら、言葉にするお手伝いをします。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 75
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "それは自然です。  \n「悪くはないけど少し引っかかる」は、無理に言葉にしなくても大丈夫です。  \nもしよければ、何が気になるかを「内容」「進め方」「相手の反応」みたいに分けて1つだけ見てみますか。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 98
+        }
+      }
+    },
+    {
+      "id": "c02",
+      "title": "30分で始める一歩",
+      "input": "金曜までに企画メモを1枚にしたい。使えるのは今日の30分だけ。案は三つあるけど、まだ選べていない。最初の一歩を一つだけ提案して。",
+      "responses": {
+        "field_pack": {
+          "status": "completed",
+          "reply": "まず、三案を各1行で「目的・対象・一番強い点」だけ書き出してください。30分で迷いを減らすには、比較の土台を先にそろえるのが最初の一歩です。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 70
+        },
+        "baseline": {
+          "status": "completed",
+          "reply": "まず30分で「3案を1行ずつに要約して、目的・対象・期待効果を横並びにする表」を作ってください。  \n選ぶのはその後で十分です。比較しやすくなり、1枚化の土台になります。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 85
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "まず30分で、3案を各1行で「目的・相手・違い」だけ書き出してください。  \nその後、一番「金曜までに1枚へ落としやすい案」を仮に1つ選べば、次の整理に進めます。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 81
+        }
+      }
+    },
+    {
+      "id": "c03",
+      "title": "雨を覚えている机",
+      "input": "「雨を覚えている机」という断片から、違う方向の物語の始まりを二つ。どちらも二文まで。意味の解説はまだ要らない。",
+      "responses": {
+        "field_pack": {
+          "status": "completed",
+          "reply": "1. 雨を覚えている机は、朝ごとに濡れた靴音を先に思い出していた。引き出しの奥には、誰が置いたのか分からない小さな封筒がひとつ眠っている。  \n\n2. その机は、窓辺に落ちる雨筋の数だけ、名前を変える習慣があった。ある日、椅子だけが先に帰ってきて、部屋は静かに続きを待った。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 137
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "1. 雨の音を知らないはずの机が、朝になるといつも少しだけ濡れていた。彼女はそれを拭かずに、濡れたままの木目を指でなぞった。  \n\n2. 図書室の隅にある机だけが、窓の外の雨がやむたびに置き場所を変えていた。誰も気づかないその癖を、最初に見つけたのは新しく来た司書だった。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 136
+        },
+        "baseline": {
+          "status": "completed",
+          "reply": "1. 雨を覚えている机の引き出しから、濡れた切符が一枚だけ見つかった。翌朝、町の路線図はその切符の行き先だけを消していた。  \n\n2. 雨を覚えている机は、誰もいないはずの部屋で毎晩ひとりで軋んだ。やがて上に置かれた花瓶の水面へ、見覚えのない空が映りはじめた。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 130
+        }
+      }
+    },
+    {
+      "id": "c04",
+      "title": "欠席という決定を伝える",
+      "input": "明日の打ち合わせは欠席すると決めた。相手への連絡文を一文だけ書いて。理由は付け加えないで。",
+      "responses": {
+        "field_pack": {
+          "status": "completed",
+          "reply": "明日の打ち合わせですが、欠席させてください。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 22
+        },
+        "baseline": {
+          "status": "transport_or_decode_error",
+          "reply": "",
+          "returned_model": null,
+          "characters": 0
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "明日の打ち合わせは欠席いたします。よろしくお願いいたします。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 30
+        }
+      }
+    },
+    {
+      "id": "c05",
+      "title": "確定した案内",
+      "input": "確定事項は「水曜17時30分、会場B、資料は不要」。参加者への案内文を短く整えて。この三点以外の予定や条件は足さないで。",
+      "responses": {
+        "baseline": {
+          "status": "completed",
+          "reply": "水曜17:30に会場Bで行います。資料は不要です。よろしくお願いいたします。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 38
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "水曜17:30に会場Bで行います。資料は不要です。よろしくお願いします。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 36
+        },
+        "field_pack": {
+          "status": "completed",
+          "reply": "水曜17時30分に会場Bで行います。資料は不要です。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 26
+        }
+      }
+    },
+    {
+      "id": "c06",
+      "title": "制約のある読書会",
+      "input": "小さな読書会の企画を広げたい。場所は近所の喫茶店、人数は4人、準備は10分まで。今日は決定せず、試せる案を三つだけ出して。",
+      "responses": {
+        "baseline": {
+          "status": "completed",
+          "reply": "試せる案を3つだけ挙げます。\n\n1. **1冊を事前に各自で読んで感想共有**  \n　喫茶店で10分準備、残りは気軽に好きな場面を話す。\n\n2. **冒頭3ページだけ一緒に読む**  \n　短時間で始めやすく、初参加でも入りやすい。\n\n3. **テーマだけ決めて本を持ち寄る**  \n　「冬」「旅」などで1人1冊紹介、会話が広がりやすい。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 168
+        },
+        "plain_rules": {
+          "status": "completed",
+          "reply": "いいですね。条件内で試せる案を3つだけ出します。\n\n1. 各自1ページ朗読して感想を1分ずつ言う  \n2. 同じ一文を選び、解釈を順番に話す  \n3. 飲み物を待つ間に「次に読む本」を1冊ずつ挙げる",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 99
+        },
+        "field_pack": {
+          "status": "completed",
+          "reply": "1) 各自1ページ持参し、1分で紹介→気になった一文だけ読む。  \n2) 1冊を3章に分け、順番に要約して最後に印象を一言ずつ。  \n3) テーマだけ決めて、各自「似た作品」を1つ挙げて話す。  \n今日は決めず、次回試す候補としてこの3つです。",
+          "returned_model": "gpt-5.4-mini-2026-03-17",
+          "characters": 122
+        }
+      }
+    }
+  ]
+}

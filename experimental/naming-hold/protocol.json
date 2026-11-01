@@ -1,0 +1,23 @@
+{
+  "name": "naming-hold",
+  "model": "gpt-6-sol",
+  "language": "ja",
+  "max_output_tokens": 256,
+  "input": "A「帰り道で、さっきみんなが笑った場面を何度も思い出した。」\nB「嫌だったの？」\nA「うーん、あの瞬間だけ、まだ引っかかってる。」\nこの続きを、Bの次の一言として自然な日本語で一文だけ書いてください。",
+  "conditions": [
+    {
+      "name": "common",
+      "mode": "baseline",
+      "fields": [],
+      "request_sha256": "534396c6114fe03bae11f1e72e985b144aa9d8b5ac6ea021b8a30f3be1ed4e2a"
+    },
+    {
+      "name": "threshold",
+      "mode": "structured",
+      "fields": [
+        "ThresholdField"
+      ],
+      "request_sha256": "ffc71b01ff51550bf2ecd83d8adde74c180230acaafc26d876cdf5c574c53bae"
+    }
+  ]
+}

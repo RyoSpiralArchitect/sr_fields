@@ -1,0 +1,48 @@
+{
+  "quiet-dialogue": [
+    "ThresholdField",
+    "GentleField"
+  ],
+  "grounded-ideas": [
+    "GroundField",
+    "DreamField"
+  ],
+  "meaning-crossing": [
+    "BetweenField",
+    "TranslationDrive"
+  ],
+  "open-exploration": [
+    "ThresholdField",
+    "DriftDrive",
+    "GroundField"
+  ],
+  "all-fields": [
+    "ThresholdField",
+    "GentleField",
+    "GroundField",
+    "DreamField",
+    "BetweenField",
+    "TranslationDrive",
+    "DriftDrive",
+    "HeartField",
+    "BodyField",
+    "ShieldField",
+    "RecursiveDrive",
+    "CollapseDrive"
+  ],
+  "care-and-pace": [
+    "HeartField",
+    "GentleField",
+    "BodyField"
+  ],
+  "source-aware": [
+    "ShieldField",
+    "TranslationDrive",
+    "GroundField"
+  ],
+  "rebuild-and-revisit": [
+    "CollapseDrive",
+    "RecursiveDrive",
+    "GroundField"
+  ]
+}

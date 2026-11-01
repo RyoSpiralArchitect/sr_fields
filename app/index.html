@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Field Observatory</title>
+  <link rel="stylesheet" href="/app/styles.css">
+  <script type="module" src="/app/app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#panels" data-i18n="skip">Go to observations</a>
+  <main>
+    <header class="app-header">
+      <div><h1 data-i18n="title">Field Observatory</h1><p data-i18n="subtitle">Follow signals, read dialogue, and explore ways of responding.</p></div>
+      <label><span data-i18n="uiLanguage">Interface language</span><select id="ui-language"><option value="en">English</option><option value="ja">日本語</option></select></label>
+    </header>
+    <div id="bridges" class="row" data-i18n-aria="bridges" aria-label="Explore a shared question"></div>
+    <p class="muted small" data-i18n="bridgeNote"></p>
+    <nav role="tablist" data-i18n-aria="tabs" aria-label="Observation views">
+      <button id="tab-signals" role="tab" aria-controls="panel-signals" aria-selected="true" data-view="signals" data-i18n="signals">Signal traces</button>
+      <button id="tab-dialogue" role="tab" aria-controls="panel-dialogue" aria-selected="false" data-view="dialogue" tabindex="-1" data-i18n="dialogue">Dialogue progression</button>
+      <button id="tab-pilot" role="tab" aria-controls="panel-pilot" aria-selected="false" data-view="pilot" tabindex="-1" data-i18n="pilot">Historical replies</button>
+      <button id="tab-workbench" role="tab" aria-controls="panel-workbench" aria-selected="false" data-view="workbench" tabindex="-1" data-i18n="workbench">Compose a prompt</button>
+    </nav>
+    <div id="panels">
+      <section id="panel-signals" role="tabpanel" aria-labelledby="tab-signals">
+        <div class="controls"><label><span data-i18n="scenario">Signal pattern</span><select id="scenario"></select></label><label><span data-i18n="threshold">Abstention margin (arbitrary units)</span><select id="threshold"></select></label></div>
+        <p class="muted small" data-i18n="seedNote"></p>
+        <div id="legend" class="row"></div><div id="plot"></div><div id="decision-plot"></div>
+        <div id="signal-metrics" aria-live="polite"></div>
+      </section>
+      <section id="panel-dialogue" role="tabpanel" aria-labelledby="tab-dialogue" hidden>
+        <div class="controls"><label><span data-i18n="case">Dialogue</span><select id="dialogue-case"></select></label><label><span data-i18n="stage">Visible stage</span><select id="stage"><option value="1" data-i18n="stageOne">Stage 1</option><option value="2" data-i18n="stageTwo">Stage 2</option><option value="3" data-i18n="stageThree">Stage 3</option></select></label></div>
+        <p class="muted small" data-i18n="dialogueNote"></p><p class="small muted" data-i18n="originalNote"></p>
+        <div id="dialogue-content" aria-live="polite"></div>
+      </section>
+      <section id="panel-pilot" role="tabpanel" aria-labelledby="tab-pilot" hidden>
+        <div class="controls"><label><span data-i18n="sameInput">Compare the same input</span><select id="pilot-case"></select></label></div>
+        <p class="muted small" data-i18n="pilotNote"></p><p class="notice" data-i18n="pilotWarning"></p><p class="small muted" data-i18n="originalNote"></p>
+        <div id="pilot-content" aria-live="polite"></div>
+      </section>
+      <section id="panel-workbench" role="tabpanel" aria-labelledby="tab-workbench" hidden>
+        <h2 data-i18n="composeHeading">Choose and combine response policies</h2><p data-i18n="composeIntro"></p>
+        <div class="controls">
+          <label><span data-i18n="preset">Starting combination</span><select id="preset"></select></label>
+          <label><span data-i18n="mode">Prompt format</span><select id="mode"><option value="structured" data-i18n="structured">Names and JSON structure</option><option value="plain" data-i18n="plain">Same policies in ordinary text</option><option value="baseline" data-i18n="baseline">Common instructions only</option></select></label>
+          <label><span data-i18n="promptLanguage">System prompt language</span><select id="prompt-language"><option value="en">English</option><option value="ja">日本語</option></select></label>
+        </div>
+        <p class="small muted" data-i18n="languageNote"></p>
+        <div class="row"><button id="all-on" data-i18n="allOn">All on</button><button id="clear-fields" data-i18n="clear">Clear selection</button><span id="selection-count" class="small" role="status"></span></div>
+        <fieldset class="field-picker"><legend data-i18n="picker">Available Fields</legend><div id="field-picker"></div></fieldset>
+        <div id="selection-note" class="small muted"></div>
+        <h3 data-i18n="order">Prompt order</h3><ol id="field-order" class="field-order"></ol>
+        <details><summary data-i18n="preview">Inspect the exact system prompt</summary><pre id="prompt-preview"></pre><div class="row"><button id="copy-prompt" data-i18n="copy" disabled>Copy instructions</button><button id="download-prompt" data-i18n="download" disabled>Save prompt JSON</button></div></details>
+        <label class="input-label" for="trial-input" data-i18n="input">Words or dialogue to try</label>
+        <textarea id="trial-input" rows="4" maxlength="4000"></textarea>
+        <div class="row run-row"><button id="run" disabled data-i18n="run">Try this input once</button><span id="session-status" class="muted small"></span></div>
+        <p class="muted small" data-i18n="privacy"></p><p id="workbench-status" class="small" role="status"></p><div id="trial-result" aria-live="polite"></div>
+      </section>
+    </div>
+    <p id="error" role="alert" hidden></p>
+    <footer><details><summary data-i18n="about">About this observatory</summary><p data-i18n="aboutText"></p><p data-i18n="unevaluated"></p><p>sr_fields · Apache-2.0 · <a href="/data/manifest.json" data-i18n="manifest">Public data inventory</a></p></details></footer>
+  </main>
+</body>
+</html>

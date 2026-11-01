@@ -1,0 +1,12 @@
+.env
+.env.*
+.runs/
+.private/
+__pycache__/
+*.py[cod]
+.venv/
+.DS_Store
+dist/
+build/
+*.egg-info/
+coverage/

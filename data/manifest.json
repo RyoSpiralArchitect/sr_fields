@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "public_projection",
+  "counts": {
+    "signal_samples": 5,
+    "dialogue_decisions": 108,
+    "api_completed": 17,
+    "api_missing": 1
+  },
+  "files": {
+    "data/api-pilot.json": "61faa589269f4d50e7f9470acb2d9ca4dff1d5254925a608dd9b4c3d91ff43ec",
+    "data/bridges.json": "a37bf861f6d90663879ce3ce0424237c6069aca16e5714a223de91db88ecd524",
+    "data/dialogue.json": "4dbdfc41af7780ea4dfac725151f9cd6a5f5a165e7a8cc64425c264ede2321ae",
+    "data/signal-protocol.json": "5fe1235deb638c8e2195a984bfc03710b5665dea38e19e773df260f739a4f74f",
+    "data/signals.json": "7909be306f19e0c8146e643dbab5f2b4bf50ad03695820d3d0b192a995a482d8"
+  }
+}
