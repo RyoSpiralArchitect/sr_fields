@@ -17,7 +17,7 @@ jobs:
         with:
           node-version: '22'
       - run: python -I -S -m unittest discover -s tests -v
-      - run: python -I -S scripts/observatory.py verify-signals
+      - run: python -I -S scripts/observatory.py verify-signals --portable
       - run: python -I -S scripts/audit_public.py
       - run: node scripts/check-js.js
       - run: node --test tests/composition.test.js

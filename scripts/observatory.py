@@ -16,7 +16,8 @@ from field_observatory.signals import verify_samples
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    sub.add_parser('verify-signals')
+    signals = sub.add_parser('verify-signals')
+    signals.add_argument('--portable', action='store_true', help='Check recorded hashes and every decision with a fixed absolute numeric tolerance')
     export = sub.add_parser('prompt')
     run = sub.add_parser('run')
     for p in (export, run):
@@ -38,7 +39,7 @@ def main():
     if args.command == 'prompt':
         value = compile_prompt(args.preset, args.mode, language=args.language, field_ids=args.fields)
     elif args.command == 'verify-signals':
-        value = verify_samples()
+        value = verify_samples(portable=args.portable)
     elif args.command == 'run':
         text = args.input_file.read_text()
         if args.execute:

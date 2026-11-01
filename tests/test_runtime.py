@@ -81,7 +81,9 @@ class PromptsAndEvidence(unittest.TestCase):
             with self.assertRaises(ValueError): compile_prompt(preset, mode)
 
     def test_public_numeric_parameters_reproduce_original_samples(self):
-        self.assertEqual(verify_samples(), {'verified_samples': 5, 'steps_per_sample': 384})
+        report = verify_samples(portable=True)
+        self.assertEqual((report['verified_samples'], report['steps_per_sample']), (5, 384))
+        self.assertLessEqual(report['max_absolute_difference'], report['absolute_tolerance'])
 
     def test_historical_missing_slot_is_not_filled_or_relabeled(self):
         pilot = json.loads((ROOT / 'data/api-pilot.json').read_text())

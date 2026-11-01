@@ -87,7 +87,7 @@ See [evidence and limitations](data/README.md) and [the public/private boundary]
 
 ```sh
 python3 -I -S -m unittest discover -s tests -v
-python3 -I -S scripts/observatory.py verify-signals
+python3 -I -S scripts/observatory.py verify-signals --portable
 node --test tests/composition.test.js
 node scripts/check-js.js
 python3 -I -S scripts/audit_public.py

@@ -1,8 +1,11 @@
 """The original one-dimensional generator, with explicit public parameters."""
 import hashlib
 import json
+import math
 import random
 from .prompts import ROOT
+
+REPLAY_ABS_TOL = 1e-14
 
 
 def stable_seed(seed, scenario, stream):
@@ -38,10 +41,41 @@ def generate(protocol, scenario, seed):
     return {'id': sid, 'label': labels[sid], 'seed': seed, 'latent': latent, 'observation': observed, 'memory': memory}
 
 
-def verify_samples(root=ROOT):
+def compare_portable_trace(actual, reference, thresholds):
+    series = ('latent', 'observation', 'memory')
+    if actual.keys() != reference.keys() or any(actual[k] != reference[k] for k in actual.keys() - set(series)):
+        raise ValueError('Rebuilt scenario metadata differs')
+    largest_delta = 0.0
+    for name in series:
+        for index, (a, b) in enumerate(zip(actual[name], reference[name], strict=True)):
+            delta = abs(a - b)
+            if not math.isfinite(delta) or delta > REPLAY_ABS_TOL:
+                raise ValueError(f"{actual['id']} {name}[{index}] absolute difference {delta!r}")
+            largest_delta = max(largest_delta, delta)
+            if a == b:
+                continue
+            if name == 'latent':
+                changed = ((a > 0) - (a < 0)) != ((b > 0) - (b < 0))
+            else:
+                changed = (a >= 0) != (b >= 0) or any((abs(a) >= t) != (abs(b) >= t) for t in thresholds)
+            if changed:
+                raise ValueError(f"{actual['id']} {name}[{index}] changes a truth label or threshold decision")
+    return largest_delta
+
+
+def verify_samples(root=ROOT, *, portable=False):
     protocol = json.loads((root / 'data/signal-protocol.json').read_text())
     saved = json.loads((root / 'data/signals.json').read_text())
     rebuilt = [generate(protocol, scenario, protocol['budget']['seeds'][0]) for scenario in protocol['scenarios']]
+    result = {'verified_samples': len(rebuilt), 'steps_per_sample': protocol['budget']['steps']}
+    if portable:
+        manifest = json.loads((root / 'data/manifest.json').read_text())['files']
+        for name in ('data/signals.json', 'data/signal-protocol.json'):
+            if hashlib.sha256((root / name).read_bytes()).hexdigest() != manifest[name]:
+                raise ValueError(f'Recorded file differs from manifest: {name}')
+        deltas = [compare_portable_trace(actual, reference, protocol['designation']['thresholds'])
+                  for actual, reference in zip(rebuilt, saved['scenarios'], strict=True)]
+        return {**result, 'max_absolute_difference': max(deltas), 'absolute_tolerance': REPLAY_ABS_TOL}
     if rebuilt != saved['scenarios']:
         raise ValueError('Rebuilt signal samples differ')
-    return {'verified_samples': len(rebuilt), 'steps_per_sample': protocol['budget']['steps']}
+    return result

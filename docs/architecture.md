@@ -42,4 +42,6 @@ Every dispatch preserves the selected prompt language and ordered IDs alongside 
 
 ## Reproducibility boundaries
 
-Public signal parameters regenerate all five displayed samples exactly on the locally checked Python version. CI is configured for three Python versions; remote execution is separate evidence. Dialogue cases and API replies are historical records. The API pilot's original source-bearing prompt is not reproducible from this repository. Each public trial gets its own record linked to the instructions by hash.
+The source environment reproduces all five displayed samples with exact numeric equality. `verify-signals` retains that strict check. Linux CI uses `verify-signals --portable` because Gaussian noise generation uses platform math functions. It checks the recorded file hashes, metadata and array lengths, and reports the largest absolute difference across all samples. Every difference must be finite and at most 1e-14. All latent signs (including zero) and every decision at each configured threshold must agree.
+
+Dialogue cases and historical API replies retain their original wording. The historical pilot used source-bearing instructions. Each public trial gets its own record linked to the instructions by hash.
