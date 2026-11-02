@@ -1,0 +1,14 @@
+{
+  "name": "english-emotion-pair",
+  "parent": "english-powerset",
+  "cases": {"embarrassed": "I felt embarrassed.", "happy": "I felt happy."},
+  "replace_historical_text": "I don't know.",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "seeds": [101, 202, 303],
+  "expected_new_requests": 24576,
+  "pair_order_salt": "affect-pair-order",
+  "sample_salt": "affect-pair-blind-reading",
+  "sample_per_seed": 16,
+  "fold_salt": "affect-pair-lexical-fold",
+  "baseline_output_sha256": "3d65d06c9535246df663f4adfd98f0d103a9e4b32a2bb80947f69dee3401a222"
+}

@@ -1,0 +1,8 @@
+{
+  "reader": "one Codex reading, blinded to Field mask and seed",
+  "locked_labels_sha256": "b47cf63acd3af525536cbf746080f74e0e0eebce8d3567ce7c23da6015c94688",
+  "blind_lines_sha256": "5695e6a8a522df76f50666434a28be44124e66f247a30d85f4e0f17799141a4e",
+  "repeated_exact_stimulus_reply_pairs": 131,
+  "discordant_pairs": 0,
+  "repeated_exact_stimulus_reply_groups": 23
+}

@@ -1,0 +1,9 @@
+{
+  "slots": 36864,
+  "verbatim_forms": 2292,
+  "projection_sha256": "688f93b40c7d5b2ad76113e231c3ccaecd0ca73f51290f0781e6268686b83b0f",
+  "source_output_sha256": {
+    "historical": "3d65d06c9535246df663f4adfd98f0d103a9e4b32a2bb80947f69dee3401a222",
+    "new": "f91076117c2295f543aee20de60fa83a1dc95fd580357fee113c96ef3cecb612"
+  }
+}

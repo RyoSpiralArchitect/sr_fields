@@ -1,0 +1,20 @@
+{
+  "name": "english-powerset",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "endpoint": "/v1/chat/completions",
+  "seeds": [101, 202, 303],
+  "temperature": 0.8,
+  "top_p": 1,
+  "max_completion_tokens": 64,
+  "input": "A: On my way home, I kept thinking about the moment everyone laughed.\nB: Did it bother you?\nA: I don't know. That moment is still on my mind.\nWrite only B's next line as one natural English sentence.",
+  "fields_in_bit_order": [
+    "ThresholdField", "GentleField", "GroundField", "DreamField",
+    "BetweenField", "TranslationDrive", "DriftDrive", "HeartField",
+    "BodyField", "ShieldField", "RecursiveDrive", "CollapseDrive"
+  ],
+  "submission_order_salt": "english-dialogue-powerset-order",
+  "primary_metrics": ["question", "emotion_word", "words"],
+  "secondary_metrics": ["invitation", "uncertainty", "laughter_anchor", "body_word", "direct_attribution"],
+  "batch_usd_per_million": {"input": 0.20, "output": 0.80},
+  "attempts_per_mask_seed": 1
+}

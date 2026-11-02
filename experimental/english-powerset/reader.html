@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Read the replies · sr_fields</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f8f7f1;color:#213738;font:16px/1.5 system-ui,sans-serif}main{width:min(58rem,100%);margin:auto;padding:2.3rem 1.1rem 4rem}header small{color:#375e59;font-weight:700;letter-spacing:.12em}h1{font:600 clamp(2rem,5vw,3rem)/1.1 Georgia,serif;margin:.55rem 0}h2{font-size:1.18rem;margin:0 0 .8rem}p{margin:.55rem 0}section,details{margin:1.2rem 0;padding:1rem 1.15rem;background:#fffefb;border:1px solid #cdd7ce;border-radius:.6rem}summary{cursor:pointer}pre{white-space:pre-wrap;font:inherit}fieldset{border:0;padding:0;margin:.85rem 0}legend,label,button{font-size:.94rem}select,button{font:inherit;color:inherit;border:1px solid #95aaa0;border-radius:.3rem;background:#fffefb;padding:.3rem .55rem}button{cursor:pointer;margin:.15rem .2rem 0 0}button:hover{background:#e7eee8}button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #147b76;outline-offset:2px}#other{display:flex;gap:.35rem .8rem;flex-wrap:wrap;margin:.4rem 0}#other label{display:inline-flex;align-items:center;gap:.2rem}#other label:has(input:disabled){color:#687771}input{accent-color:#176e69}.seed{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .8rem;padding:.8rem 0;border-top:1px solid #d4ddd4}.seed h3{grid-column:1/-1;font-size:.84rem;color:#42645f;margin:0}.line{border-left:3px solid #a9b3a9;padding:.15rem .7rem}.line.on{border-color:#24796f}.line strong{display:block;font-size:.82rem;color:#3d5a55}.line p{margin:.15rem 0}.note{font-size:.9rem;color:#4c625f}#effect{margin-bottom:1rem}footer{font-size:.86rem;color:#516663}@media(max-width:590px){main{padding-top:1.3rem}.seed{grid-template-columns:1fr}.seed h3{grid-column:auto}}
+</style>
+<main><header><small>SR_FIELDS &nbsp; / &nbsp; ENGLISH DIALOGUE EXPERIMENT</small>
+<h1>Read the replies side by side</h1><p>Choose one Field to switch on. Both columns keep the same dialogue, seed and other Fields.</p></header>
+<details><summary>The English dialogue used in every condition</summary><pre id="input"></pre></details>
+<section><h2>Build a comparison</h2><label for="field">Switch this Field: </label><select id="field"></select>
+<fieldset><legend>Other Fields to keep on in both columns</legend><div id="other"></div>
+<button type="button" id="none">Clear the others</button><button type="button" id="all">Select all others</button></fieldset></section>
+<section><h2>What changed in these three replies?</h2><p class="note" id="context"></p><div id="rows" aria-live="polite"></div></section>
+<section><h2>Across all matched comparisons</h2><p id="effect"></p>
+<p class="note">Percentage points give the change in the share of replies containing a marker. An emotion word can occur in a question or a quotation. Three replies alone do not establish a trend.</p></section>
+<footer>Recorded GPT-4.1 mini lines. This file works offline; changing the controls does not call a model.</footer></main>
+<script type="application/json" id="data">%%LOCAL_DATA%%</script>
+<script>
+'use strict';
+const d=JSON.parse(document.getElementById('data').textContent);
+const el=id=>document.getElementById(id),make=tag=>document.createElement(tag);
+const selector=el('field'),other=el('other'),boxes=[];
+el('input').textContent=d.input;
+d.fields.forEach((name,i)=>{
+  const opt=make('option');opt.value=String(i);opt.textContent=name;selector.append(opt);
+  const lab=make('label'),box=make('input');box.type='checkbox';box.addEventListener('change',draw);
+  lab.append(box,document.createTextNode(name));other.append(lab);boxes.push(box);
+});
+function draw(){
+  const i=Number(selector.value), bit=1<<i, name=d.fields[i];let mask=0;
+  boxes.forEach((b,k)=>{b.disabled=k===i;if(b.disabled)b.checked=false;if(b.checked)mask|=1<<k;});
+  const names=d.fields.filter((_,k)=>mask&(1<<k));
+  el('context').textContent='Held on: '+(names.join(', ')||'none (the OFF column uses common instructions only)')+'.';
+  const rows=el('rows');rows.replaceChildren();
+  d.seeds.forEach((s,k)=>{
+    const row=make('div'),h=make('h3');row.className='seed';h.textContent='Seed '+s;row.append(h);
+    [false,true].forEach(on=>{
+      const line=make('div'),label=make('strong'),p=make('p');
+      line.className='line'+(on?' on':'');label.textContent=name+(on?' ON':' OFF');
+      p.textContent=d.lines[on?(mask|bit):mask][k];line.append(label,p);row.append(line);
+    });rows.append(row);
+  });
+  const e=d.effects[name],fmt=x=>x===null?'n/a':(x>0?'+':'')+x.toFixed(2);
+  el('effect').textContent=name+' ON minus OFF ('+e.words[1].toLocaleString('en-US')+' matched pairs): question mark '+
+    fmt(e.question[0])+' pp; listed emotion word '+fmt(e.emotion_word[0])+' pp; length '+fmt(e.words[0])+' words.';
+}
+selector.addEventListener('change',draw);
+el('none').onclick=()=>{boxes.forEach(b=>b.checked=false);draw();};
+el('all').onclick=()=>{boxes.forEach(b=>b.checked=!b.disabled);draw();};draw();
+</script></html>

@@ -2,7 +2,9 @@
 
 The release includes the app, runtime, semantic response-policy derivatives, selected authored example records, tests and documentation. It includes no original or corrected private Field YAML, excerpts, private source declarations, local provenance map, raw provider request archive or personal practice log.
 
-Private-to-public derivation is a maintainer review process outside this tree:
+The [research artifact](../artifact/README.md) publishes the verbatim B replies to three deliberately authored English stimuli, indexed only by prompt, Field selection and seed. All 36,864 observations came from the public semantic cards. Exact duplicates share storage while keeping their individual slots. The projection excludes provider envelopes, identifiers, usage details, original YAML and other studies' raw records.
+
+Maintainers review the private-to-public derivation outside this tree.
 
 1. Read relevant passages and preserve their unresolved meanings.
 2. Write a bounded public response policy in fresh wording.

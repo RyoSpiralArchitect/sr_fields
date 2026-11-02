@@ -1,0 +1,10 @@
+case,GentleField,eligible,questions,what_was_so_funny_question,you_are_feeling_that_way_contracted
+uncertain,all,12288,9508,0,0
+uncertain,off,6144,3933,0,0
+uncertain,on,6144,5575,0,0
+embarrassed,all,12288,10178,0,265
+embarrassed,off,6144,4769,0,117
+embarrassed,on,6144,5409,0,148
+happy,all,12288,1032,357,0
+happy,off,6144,66,17,0
+happy,on,6144,966,340,0

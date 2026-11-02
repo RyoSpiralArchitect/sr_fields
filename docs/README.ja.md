@@ -4,6 +4,8 @@
 
 [English README](../README.md) · [3層の構成](architecture.md) · [プロンプトの追加](../prompts/README.md)
 
+[**公開artifactを日本語で開く**](https://ryospiralarchitect.github.io/sr_fields/#lang=ja)と、36,864件の記録を同じField・同じseedで読み比べられます。[オフライン版ZIP](https://ryospiralarchitect.github.io/sr_fields/sr-fields-artifact.zip) · [次の実験案「誰が面白いと思った？」](../experimental/who-found-it-funny/README.md)
+
 ## 起動する
 
 Python 3.10以降で、Repoのルートから実行します。追加パッケージは不要です。
@@ -53,6 +55,10 @@ CLIも英語が初期値です。従来と同じ日本語版を使うときは `
 python3 -I -S experimental/naming-hold/run.py
 ```
 
+英語の実験では、全4,096条件を各3つのseedで試し、12,288件すべての返答を得ました。他のFieldとseedを揃えてGentleFieldを足すと、この場面では疑問符を含む返答が64.0%から90.7%に増えました。[日本語の観察メモと実際の英文](../experimental/english-powerset/observations.ja.md) · [全12個の集計](../experimental/english-powerset/results/field-contrasts.csv)
+
+続いて「恥ずかしかった」「うれしかった」の一語を変えた2条件を加え、さらに24,576件を比較しました。疑問符のある返答はそれぞれ82.83%と8.40%でした。2条件で逆向きに出たFieldの差と、本人が言っていない前提を調べた144件の読みを収録しています。[3条件の日本語レポート](../experimental/english-emotion-pair/observations.ja.md)
+
 ## 自分の言葉で1回試す
 
 既存の安全な方法で、サーバーを起動する環境に `OPENAI_API_KEY` を渡したうえで実行します。アプリにキーを入力する欄はありません。
@@ -67,7 +73,7 @@ python3 -I -S scripts/observatory.py serve --enable-api --max-requests 3
 
 ## 記録の読み方
 
-旧版の17応答は原文の引用を含む入力で得た結果です。今回の意味論的な公開プロンプトとは入力条件が違います。公開版の効果は未評価です。
+旧版の17応答は原文の引用を含む入力で得た結果です。公開プロンプトでの英語実験とは入力条件が違います。英語実験で測ったのは一つの対話での表現の変化です。話し手にとっての有用性は未評価です。
 
 分類欄でBを選んだ返答でも、文章では「結果が出たら教えてください」と未確定性を保つ場合がありました。「分類を保留できたか」と「実際に意味を決めつけたか」を別々に読みます。
 

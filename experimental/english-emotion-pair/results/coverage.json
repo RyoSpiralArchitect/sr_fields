@@ -1,0 +1,184 @@
+{
+  "historical": {
+    "backends": {
+      "uncertain": {
+        "fp_197486f41a": 1763,
+        "fp_1ce43dcb38": 276,
+        "fp_2c9e3722b1": 39,
+        "fp_2dea0d2769": 279,
+        "fp_4287b90ad9": 514,
+        "fp_4541be1112": 503,
+        "fp_4b598befc4": 4,
+        "fp_4fe83ac02c": 479,
+        "fp_57f7a0b570": 1116,
+        "fp_6cab07b253": 468,
+        "fp_75e7b04702": 477,
+        "fp_89692fa410": 503,
+        "fp_90818c14e6": 287,
+        "fp_96f94d62d4": 502,
+        "fp_afd659f87a": 452,
+        "fp_b2b56aff14": 534,
+        "fp_be75d2593a": 486,
+        "fp_c2de8519c8": 370,
+        "fp_dfe129d8ff": 724,
+        "fp_e6e3e6fec2": 898,
+        "fp_f36b05c68c": 294,
+        "fp_f74b60c37b": 477,
+        "fp_f9f464a132": 576,
+        "fp_fe27a5817c": 267
+      }
+    },
+    "files_sha256": {
+      "output.jsonl": "3d65d06c9535246df663f4adfd98f0d103a9e4b32a2bb80947f69dee3401a222"
+    },
+    "listed_cost_usd_for_reported_usage": 2.0965138,
+    "listed_cost_usd_for_reported_usage_by_case": {
+      "uncertain": 2.0965138
+    },
+    "provider": {
+      "completed": 12288,
+      "failed": 0,
+      "total": 12288
+    },
+    "requests_sha256": "5040fbb57fec75def9a6bc7848072f85ae166b0fdcc6f25ee2af61b98d39f504",
+    "status": "completed",
+    "statuses": {
+      "uncertain": {
+        "completed": 12288
+      }
+    },
+    "times_utc": {
+      "completed_at": "2026-11-02T15:59:34+00:00",
+      "created_at": "2026-11-02T15:36:47+00:00",
+      "finalizing_at": "2026-11-02T15:51:09+00:00",
+      "in_progress_at": "2026-11-02T15:37:52+00:00"
+    },
+    "usage": {
+      "uncertain": {
+        "cached_input": 0,
+        "input": 9633765,
+        "output": 212201,
+        "reported_slots": 12288
+      }
+    }
+  },
+  "new": {
+    "backends": {
+      "embarrassed": {
+        "fp_197486f41a": 1183,
+        "fp_1ce43dcb38": 270,
+        "fp_2c9e3722b1": 360,
+        "fp_2dea0d2769": 298,
+        "fp_4287b90ad9": 359,
+        "fp_432f2fc977": 114,
+        "fp_4541be1112": 314,
+        "fp_4b598befc4": 290,
+        "fp_4fe83ac02c": 746,
+        "fp_4ffa17cc03": 154,
+        "fp_57f7a0b570": 453,
+        "fp_57fae150d5": 102,
+        "fp_6cab07b253": 287,
+        "fp_75e7b04702": 820,
+        "fp_89692fa410": 301,
+        "fp_90818c14e6": 177,
+        "fp_96f94d62d4": 396,
+        "fp_9767fc3474": 76,
+        "fp_a314f82fe4": 44,
+        "fp_afd659f87a": 354,
+        "fp_b2b56aff14": 291,
+        "fp_be75d2593a": 190,
+        "fp_c097a7511f": 684,
+        "fp_c2de8519c8": 595,
+        "fp_d795161d7f": 87,
+        "fp_dfe129d8ff": 509,
+        "fp_e51c610930": 67,
+        "fp_e57d8932d5": 192,
+        "fp_e6e3e6fec2": 379,
+        "fp_f36b05c68c": 290,
+        "fp_f74b60c37b": 676,
+        "fp_f9f464a132": 873,
+        "fp_fe27a5817c": 83,
+        "fp_ffa8966f88": 274
+      },
+      "happy": {
+        "fp_197486f41a": 1042,
+        "fp_1ce43dcb38": 253,
+        "fp_2c9e3722b1": 335,
+        "fp_2dea0d2769": 297,
+        "fp_4287b90ad9": 354,
+        "fp_432f2fc977": 166,
+        "fp_4541be1112": 265,
+        "fp_4b598befc4": 355,
+        "fp_4fe83ac02c": 745,
+        "fp_4ffa17cc03": 150,
+        "fp_57f7a0b570": 514,
+        "fp_57fae150d5": 101,
+        "fp_6cab07b253": 293,
+        "fp_75e7b04702": 790,
+        "fp_89692fa410": 304,
+        "fp_90818c14e6": 142,
+        "fp_96f94d62d4": 381,
+        "fp_9767fc3474": 70,
+        "fp_a314f82fe4": 42,
+        "fp_afd659f87a": 341,
+        "fp_b2b56aff14": 263,
+        "fp_be75d2593a": 193,
+        "fp_c097a7511f": 703,
+        "fp_c2de8519c8": 596,
+        "fp_d795161d7f": 96,
+        "fp_dfe129d8ff": 502,
+        "fp_e51c610930": 61,
+        "fp_e57d8932d5": 183,
+        "fp_e6e3e6fec2": 391,
+        "fp_f36b05c68c": 344,
+        "fp_f74b60c37b": 731,
+        "fp_f9f464a132": 901,
+        "fp_fe27a5817c": 88,
+        "fp_ffa8966f88": 296
+      }
+    },
+    "files_sha256": {
+      "output.jsonl": "f91076117c2295f543aee20de60fa83a1dc95fd580357fee113c96ef3cecb612"
+    },
+    "listed_cost_usd_for_reported_usage": 4.133172399999999,
+    "listed_cost_usd_for_reported_usage_by_case": {
+      "embarrassed": 2.0967618,
+      "happy": 2.0364106
+    },
+    "provider": {
+      "completed": 24576,
+      "failed": 0,
+      "total": 24576
+    },
+    "requests_sha256": "6bda00800c3a43b811291fbbad689ac944d296f99a0954ddc861715c495dc247",
+    "status": "completed",
+    "statuses": {
+      "embarrassed": {
+        "completed": 12288
+      },
+      "happy": {
+        "completed": 12288
+      }
+    },
+    "times_utc": {
+      "completed_at": "2026-11-02T17:28:06+00:00",
+      "created_at": "2026-11-02T16:40:12+00:00",
+      "finalizing_at": "2026-11-02T17:08:45+00:00",
+      "in_progress_at": "2026-11-02T16:41:21+00:00"
+    },
+    "usage": {
+      "embarrassed": {
+        "cached_input": 0,
+        "input": 9633765,
+        "output": 212511,
+        "reported_slots": 12288
+      },
+      "happy": {
+        "cached_input": 0,
+        "input": 9633765,
+        "output": 137072,
+        "reported_slots": 12288
+      }
+    }
+  }
+}

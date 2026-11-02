@@ -1,0 +1,74 @@
+{
+  "expected": 12288,
+  "statuses": {
+    "completed": 12288
+  },
+  "provider_counts": {
+    "completed": 12288,
+    "failed": 0,
+    "total": 12288
+  },
+  "pooled": {
+    "question": 0.7737630208333334,
+    "emotion_word": 0.001708984375,
+    "words": 15.54296875,
+    "invitation": 0.7119954427083334,
+    "uncertainty": 0.020426432291666668,
+    "laughter_anchor": 0.006673177083333333,
+    "body_word": 0.0,
+    "direct_attribution": 0.0
+  },
+  "fingerprints": {
+    "fp_57f7a0b570": 1116,
+    "fp_f36b05c68c": 294,
+    "fp_f9f464a132": 576,
+    "fp_96f94d62d4": 502,
+    "fp_6cab07b253": 468,
+    "fp_fe27a5817c": 267,
+    "fp_dfe129d8ff": 724,
+    "fp_b2b56aff14": 534,
+    "fp_197486f41a": 1763,
+    "fp_c2de8519c8": 370,
+    "fp_f74b60c37b": 477,
+    "fp_be75d2593a": 486,
+    "fp_e6e3e6fec2": 898,
+    "fp_1ce43dcb38": 276,
+    "fp_75e7b04702": 477,
+    "fp_2dea0d2769": 279,
+    "fp_4541be1112": 503,
+    "fp_4287b90ad9": 514,
+    "fp_89692fa410": 503,
+    "fp_4fe83ac02c": 479,
+    "fp_2c9e3722b1": 39,
+    "fp_afd659f87a": 452,
+    "fp_90818c14e6": 287,
+    "fp_4b598befc4": 4
+  },
+  "usage": {
+    "input": 9633765,
+    "output": 212201,
+    "reported_slots": 12288,
+    "cached_input_reported": 0
+  },
+  "listed_cost_usd_for_reported_usage": 2.0965138,
+  "normalized_unique_replies": 736,
+  "three_distinct": 3575,
+  "all_three_same": 17,
+  "seed_pairs": 12288,
+  "equal_seed_pairs": 555,
+  "mean_token_jaccard": 0.4977135427200918,
+  "run": {
+    "requested_snapshot": "gpt-4.1-mini-2025-04-14",
+    "status": "completed",
+    "times_utc": {
+      "created_at": "2026-11-02T15:36:47+00:00",
+      "in_progress_at": "2026-11-02T15:37:52+00:00",
+      "finalizing_at": "2026-11-02T15:51:09+00:00",
+      "completed_at": "2026-11-02T15:59:34+00:00"
+    },
+    "request_file_sha256": "5040fbb57fec75def9a6bc7848072f85ae166b0fdcc6f25ee2af61b98d39f504",
+    "raw_file_sha256": {
+      "output.jsonl": "3d65d06c9535246df663f4adfd98f0d103a9e4b32a2bb80947f69dee3401a222"
+    }
+  }
+}

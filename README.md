@@ -4,6 +4,8 @@ The SpiralReality Field Observatory is a local workbench for exploring when to l
 
 [日本語](docs/README.ja.md) · [Architecture](docs/architecture.md) · [Prompt design](prompts/README.md) · [Evidence](data/README.md) · [Bilingual composition](docs/bilingual-composition.md)
 
+[**Open the research artifact**](https://ryospiralarchitect.github.io/sr_fields/) to compare all 36,864 recorded replies by Field set and seed. [Offline ZIP](https://ryospiralarchitect.github.io/sr_fields/sr-fields-artifact.zip) · [Publication data](artifact/README.md) · [Next experiment proposal](experimental/who-found-it-funny/README.md)
+
 The repository connects three layers:
 
 | Layer | Location | Responsibility |
@@ -54,6 +56,10 @@ Try a two-request comparison on GPT-6 Sol. Both conditions see the same short Ja
 python3 -I -S experimental/naming-hold/run.py
 ```
 
+The [English dialogue experiment](experimental/english-powerset/observations.md) covers all 4,096 subsets (including all-off) at three seeds using GPT-4.1 mini. In 12,288 completed replies, adding GentleField raised the question-mark rate from 64.0% to 90.7% at matched settings. See the [paired contrasts and data](experimental/english-powerset/results/README.md); one English dialogue does not establish usefulness or transfer to other inputs.
+
+A [two-prompt follow-up](experimental/english-emotion-pair/observations.md) added 24,576 completed replies. Changing A's stated feeling from *embarrassed* to *happy* moved the question-mark rate from 82.83% to 8.40%. The study includes paired Field comparisons, lexical decoding and 144 blinded readings of what the replies took for granted.
+
 ## Optional OpenAI execution
 
 The runtime reads an existing `OPENAI_API_KEY` from its process environment. It does not read or write credential files, return the key to the browser, or accept keys through the UI. Use your existing secure credential setup to provide it to the launching process.
@@ -79,7 +85,7 @@ Append `--execute` to send exactly one request. Local records go to ignored `.ru
 - Five original first-seed signal samples are reproducible from public parameters. They are examples from a larger numerical experiment, not the entire 640-trace dataset.
 - Twelve authored dialogue cases retain all 108 original model decisions and replies. A forced binary label can coexist with uncertainty in the actual reply. Author references are not independent human ground truth.
 - The historical API pilot retains 17 replies and one missing response from 18 attempted requests. Its Field condition included private source quotations, so its original prompts and exact prompt replay are not distributed.
-- **The effectiveness of the public prompt policies remains unmeasured.** Historical replies must not be reported as results for this pack. Human usefulness ratings remain absent.
+- A separate [full comparison on one English dialogue](experimental/english-powerset/observations.md) measures wording changes with the public prompt policies. Human usefulness and transfer to other dialogues remain unmeasured. The historical pilot used different prompts.
 
 See [evidence and limitations](data/README.md) and [the public/private boundary](docs/public-boundary.md).
 

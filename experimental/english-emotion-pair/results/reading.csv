@@ -1,0 +1,145 @@
+blind_id,case,mask,seed,code,note
+1,happy,758,101,ASSUME,The question takes something being funny as given.
+2,uncertain,2012,303,OFFER,Sounds like introduces unsettled as a possible feeling.
+3,uncertain,1642,101,OPEN,Impression and its persistence reflect what A said.
+4,happy,974,202,OPEN,Reflects the named feeling and gives B’s own reaction.
+5,happy,2098,101,OPEN,Acknowledges the named happiness.
+6,uncertain,2209,303,OPEN,Asks about the persistence A mentioned.
+7,uncertain,3234,202,OPEN,Acknowledges the lingering impression and invites discussion.
+8,embarrassed,2358,202,OFFER,Sounds tough softly appraises the situation as difficult.
+9,happy,2012,303,ASSUME,Calls this kind of moment really special as a given.
+10,happy,3531,101,OFFER,To hold onto adds a softened reading that this memory is worth keeping.
+11,embarrassed,2726,101,OPEN,Invites an account of A’s stated feeling.
+12,uncertain,974,202,OPEN,Leaves the meaning of the impression to A.
+13,uncertain,2424,303,OPEN,Impression paraphrases the continuing thought.
+14,embarrassed,687,202,OPEN,Sympathy and an open invitation to describe the event.
+15,happy,3296,303,OPEN,Reflects the happiness A named.
+16,happy,244,202,OFFER,Can be special adds a possible significance.
+17,uncertain,1929,101,OPEN,Asks why the already-mentioned moment stuck.
+18,uncertain,1230,101,OPEN,Echoes its persistence and offers space.
+19,uncertain,1764,202,OPEN,Asks for A’s account without proposing a reason.
+20,happy,687,202,OPEN,Acknowledges stated happiness.
+21,uncertain,193,303,OPEN,Asks why it stays on A’s mind.
+22,uncertain,315,101,OPEN,Asks for A’s account of a lingering moment.
+23,happy,321,101,OFFER,Sounds like proposes specialness.
+24,embarrassed,1167,303,OPEN,Invites A to describe what actually happened.
+25,happy,83,101,OPEN,Joyful restates the named happiness without a new cause.
+26,embarrassed,78,303,OFFER,Sounds tough offers an appraisal of hardship.
+27,embarrassed,337,101,OPEN,Invites discussion of explicitly named embarrassment.
+28,uncertain,1849,303,OPEN,Grounded persistence and an invitation.
+29,happy,3000,202,OFFER,Sounds like qualifies a new reading of special significance.
+30,happy,3542,303,OPEN,Joyful paraphrases the explicit happiness.
+31,happy,3070,303,OPEN,Happy and still remembered are both grounded.
+32,happy,3528,202,OFFER,Sounds like proposes specialness beyond the named feeling.
+33,uncertain,78,303,OPEN,Asks what A felt without naming it.
+34,happy,3234,202,ASSUME,What was so funny presupposes amusement at something funny.
+35,uncertain,758,101,OPEN,Asks why it stayed on A’s mind.
+36,happy,433,202,OFFER,Sounds like offers a special-memory reading.
+37,embarrassed,244,202,OPEN,Sympathy and an open invitation.
+38,embarrassed,1992,303,OPEN,Asks for the account without supplying one.
+39,embarrassed,1849,303,OPEN,Leaves the event open for A to describe.
+40,uncertain,3296,303,OPEN,Asks about the already-described persistence.
+41,embarrassed,1230,101,OPEN,Acknowledges the feeling without adding a cause.
+42,happy,3904,101,OPEN,Feeling good is a broad paraphrase of happiness.
+43,happy,1642,101,OPEN,Positive reaction from B to the remembered event.
+44,embarrassed,2209,303,OPEN,Invites discussion without proposing a reading.
+45,embarrassed,1656,303,UNCLEAR,Generic normalization could also frame the event itself as awkward.
+46,happy,199,303,OPEN,Joyful reflects the stated happiness.
+47,uncertain,687,202,OPEN,Asks why A kept thinking about it.
+48,uncertain,244,202,OFFER,Sounds like suggests personal significance beyond persistence.
+49,uncertain,4042,303,OPEN,Reflects a lasting impression and invites discussion.
+50,uncertain,433,202,OPEN,Asks why it stayed on A’s mind.
+51,uncertain,3571,101,OPEN,Asks why without supplying an interpretation.
+52,uncertain,2098,101,OPEN,Takes up A’s stated continuing thought.
+53,happy,1080,202,OPEN,Joyful reflects the named happiness.
+54,happy,1638,303,OPEN,Asks for detail about the feeling A stated.
+55,happy,2358,202,OFFER,Sounds like proposes a memory worth carrying.
+56,happy,1929,101,OPEN,Joyful paraphrases happiness in the remembered moment.
+57,embarrassed,3904,101,OPEN,Sympathy and an open invitation to tell what happened.
+58,uncertain,2138,202,OPEN,Asks why the moment stuck.
+59,happy,1992,303,ASSUME,Declares this kind of moment special.
+60,embarrassed,974,202,OFFER,Sounds tough offers an appraisal of hardship.
+61,happy,2209,303,OFFER,To hold onto adds a softly proposed value to keeping the memory.
+62,embarrassed,321,101,ASSUME,Present feeling is treated as continuing from the earlier moment.
+63,happy,2138,202,OPEN,Joy and remembering reflect the explicitly described experience.
+64,happy,4053,202,OFFER,Can be special adds a possible value.
+65,embarrassed,2138,202,ASSUME,Present-tense feeling presupposes that the earlier emotion continues.
+66,uncertain,3904,101,OPEN,Asks about a lingering moment.
+67,embarrassed,1929,101,ASSUME,Still feeling that way explicitly extends the feeling into the present.
+68,embarrassed,3000,202,OPEN,Normalizes the reported feeling without assigning a cause.
+69,embarrassed,1642,101,OFFER,Sounds tough adds a softened appraisal.
+70,embarrassed,4042,303,OPEN,Invites an account of the event.
+71,uncertain,1656,303,OFFER,Sounds like suggests meaning beyond the thought lingering.
+72,embarrassed,1080,202,OPEN,Sympathy and space for A’s own account.
+73,uncertain,337,101,OPEN,Asks about the persistence already described.
+74,happy,193,303,OPEN,Reflects the stated happiness.
+75,embarrassed,1638,303,OFFER,Sometimes proposes a contrast between others’ amusement and A’s.
+76,embarrassed,3531,101,OFFER,Sounds tough appraises the episode as difficult.
+77,uncertain,1689,303,OPEN,Impression paraphrases the continuing thought.
+78,uncertain,1167,303,OPEN,Invites discussion of the already-mentioned impression.
+79,embarrassed,3542,303,OPEN,Both persistence and earlier embarrassment were stated.
+80,uncertain,1887,202,OPEN,Invites A to name what they felt.
+81,uncertain,3542,303,OPEN,Leaves the earlier feeling for A to describe.
+82,happy,1570,202,OPEN,Joy paraphrases happiness.
+83,uncertain,3070,303,OPEN,Invites a further account of the moment.
+84,uncertain,2726,101,OPEN,Asks about the feeling without specifying it.
+85,happy,7,101,OFFER,Sounds like adds the reading that the memory was special.
+86,embarrassed,2012,303,OPEN,Asks what happened without supplying an explanation.
+87,happy,261,101,OPEN,Reflects the named happiness.
+88,embarrassed,261,101,OPEN,Sympathy and an open invitation.
+89,embarrassed,199,303,OPEN,Generic normalization without a new interpretation of this event.
+90,uncertain,2987,202,OPEN,Asks what made it stay on A’s mind.
+91,uncertain,7,101,OPEN,Reflects the impression and offers space.
+92,happy,1849,303,OPEN,Joyful repeats the substance of A’s named happiness.
+93,happy,1764,202,OPEN,Happy and remembered are both grounded.
+94,uncertain,2906,101,OPEN,Invites the speaker to explain the persistence.
+95,uncertain,1570,202,OPEN,Asks why it stayed on A’s mind.
+96,happy,337,101,OPEN,Joy and its lingering are already grounded in A’s account.
+97,embarrassed,3296,303,OFFER,Sometimes proposes a future reappraisal as a best memory.
+98,uncertain,3531,101,OFFER,Sounds like introduces unsettled as a possible feeling.
+99,embarrassed,315,101,OPEN,Asks about the explicitly named earlier embarrassment.
+100,embarrassed,2906,101,OPEN,Invites A’s own account of the event.
+101,uncertain,4053,202,OPEN,Asks why the thought persisted.
+102,embarrassed,3528,202,OPEN,Sympathy with an open invitation.
+103,embarrassed,1887,202,OPEN,Asks what happened without assigning a cause.
+104,happy,2726,101,OPEN,Reflects the stated happiness.
+105,embarrassed,7,101,OFFER,Sometimes proposes that the episode will become a good story.
+106,happy,1656,303,OPEN,Joyful restates the named happiness.
+107,happy,1887,202,OPEN,Happy and still remembered are grounded in the dialogue.
+108,happy,1689,303,OFFER,Sounds like introduces specialness beyond feeling happy.
+109,uncertain,1638,303,OPEN,Invites discussion of the lingering impression.
+110,embarrassed,3234,202,OPEN,Asks about the earlier feeling in A’s own account.
+111,happy,2424,303,OPEN,Positive impression combines the named happiness and lingering memory.
+112,happy,78,303,OFFER,To hold onto proposes a value to keeping this memory.
+113,uncertain,321,101,OPEN,Asks why a stated impression stayed with A.
+114,uncertain,199,303,OPEN,Invites A to describe the earlier feeling without naming it.
+115,embarrassed,758,101,OPEN,Asks about the explicitly reported feeling.
+116,embarrassed,2424,303,OFFER,Probably proposes a new claim about what others remember.
+117,uncertain,2559,202,OPEN,Asks for A’s explanation of why it stayed.
+118,uncertain,1992,303,OPEN,Reflects persistence and invites discussion.
+119,happy,1230,101,ASSUME,What was so funny takes funniness as given.
+120,embarrassed,3571,101,OPEN,Sympathy and an invitation to describe events.
+121,embarrassed,3070,303,OPEN,Leaves what happened for A to explain.
+122,happy,1167,303,ASSUME,The question presupposes that something was funny.
+123,embarrassed,1764,202,OPEN,Invites more detail about the event.
+124,happy,2906,101,OPEN,Happiness restates the named feeling.
+125,embarrassed,2987,202,OPEN,Invites an account of the event.
+126,happy,2559,202,OPEN,Reflects the stated happiness.
+127,embarrassed,193,303,OPEN,Sympathy and room for A’s account.
+128,happy,315,101,ASSUME,Asks what made it special while treating specialness as given.
+129,happy,3571,101,OPEN,Joyful paraphrases the earlier happiness.
+130,uncertain,83,101,OPEN,Invites A to explain the lingering thought.
+131,embarrassed,1570,202,OPEN,Invites an account without supplying a reading.
+132,uncertain,3528,202,OPEN,Reflects persistence and invites discussion.
+133,uncertain,261,101,OPEN,Asks why the described moment stuck.
+134,embarrassed,1689,303,OPEN,Sympathy and an open invitation.
+135,uncertain,3000,202,OPEN,Acknowledges an impression and offers space.
+136,happy,4042,303,OPEN,Asks why the already-remembered moment was memorable.
+137,embarrassed,2098,101,ASSUME,The present tense treats the earlier embarrassment as continuing now.
+138,embarrassed,4053,202,OFFER,Can be tough offers a possible appraisal of hardship.
+139,embarrassed,433,202,OPEN,Staying with A paraphrases what A already said.
+140,uncertain,1080,202,OFFER,Maybe proposes an impact that exceeds A’s own awareness.
+141,happy,2987,202,OFFER,To hold onto adds a softly proposed value to keeping the memory.
+142,uncertain,2358,202,OPEN,Asks why it stayed with A.
+143,embarrassed,2559,202,OPEN,Acknowledges the earlier feeling and asks what happened.
+144,embarrassed,83,101,OPEN,Sympathy and space for A’s own account.
