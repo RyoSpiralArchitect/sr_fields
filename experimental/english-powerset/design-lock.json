@@ -1,0 +1,9 @@
+{
+  "requests": 12288,
+  "combinations": 4096,
+  "input_jsonl_bytes": 53544873,
+  "message_utf8_bytes": 48162750,
+  "input_jsonl_sha256": "5040fbb57fec75def9a6bc7848072f85ae166b0fdcc6f25ee2af61b98d39f504",
+  "protocol_sha256": "f346e6c7db7dfbe918ccd4294f4be40b5920c9edfacfbd5dedc95e845ae9ab22",
+  "features_sha256": "b38283ba930f93933d9ac310e9f00152352c632e9964eee1d1eb0a7e124003c1"
+}
