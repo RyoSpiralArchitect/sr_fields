@@ -44,48 +44,48 @@ def resource_id(value):
     return value
 
 
-def submit():
-    lock = read(HERE / 'design-lock.json')
-    data = (RUN / 'requests.jsonl').read_bytes()
+def submit(here=HERE, run=RUN, *, experiment='english-powerset', expected=12288, measure_file='features.py'):
+    lock = read(here / 'design-lock.json')
+    data = (run / 'requests.jsonl').read_bytes()
     if (sha(data) != lock['input_jsonl_sha256'] or data.count(b'\n') != lock['requests']
-            or lock['requests'] != 12288 or len(data) != lock['input_jsonl_bytes']
-            or sha((HERE / 'features.py').read_bytes()) != lock['features_sha256']
-            or sha((HERE / 'protocol.json').read_bytes()) != lock['protocol_sha256']):
+            or lock['requests'] != expected or len(data) != lock['input_jsonl_bytes']
+            or sha((here / measure_file).read_bytes()) != lock['features_sha256']
+            or sha((here / 'protocol.json').read_bytes()) != lock['protocol_sha256']):
         raise ValueError('Frozen input or analysis specification differs')
     key = os.environ.get('OPENAI_API_KEY')
     if not key or key.encode() in data:
         raise ValueError('Credential preflight failed')
     # Both markers are exclusive. An ambiguous POST is never replayed.
-    if not (RUN / 'upload.json').exists():
-        write_once(RUN / 'upload-attempt.json', {'sha256': sha(data)})
+    if not (run / 'upload.json').exists():
+        write_once(run / 'upload-attempt.json', {'sha256': sha(data)})
         boundary = 'observatory' + uuid.uuid4().hex
         start = (f'--{boundary}\r\nContent-Disposition: form-data; name="purpose"\r\n\r\nbatch\r\n'
-                 f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="english-powerset-{sha(data)[:12]}.jsonl"\r\n'
+                 f'--{boundary}\r\nContent-Disposition: form-data; name="file"; filename="{experiment}-{sha(data)[:12]}.jsonl"\r\n'
                  'Content-Type: application/jsonl\r\n\r\n').encode()
         payload = start + data + f'\r\n--{boundary}--\r\n'.encode()
         upload = json.loads(api('POST', 'files', payload, 'multipart/form-data; boundary=' + boundary))
         if upload.get('bytes') != len(data):
             raise ValueError('Uploaded size mismatch')
-        write_once(RUN / 'upload.json', upload)
-    file_id = resource_id(read(RUN / 'upload.json')['id'])
+        write_once(run / 'upload.json', upload)
+    file_id = resource_id(read(run / 'upload.json')['id'])
     job = {'input_file_id': file_id, 'endpoint': '/v1/chat/completions', 'completion_window': '24h',
-           'metadata': {'experiment': 'english-powerset', 'design_sha256': lock['input_jsonl_sha256']}}
-    write_once(RUN / 'create-attempt.json', job)
+           'metadata': {'experiment': experiment, 'design_sha256': lock['input_jsonl_sha256']}}
+    write_once(run / 'create-attempt.json', job)
     batch = json.loads(api('POST', 'batches', packed(job)))
     resource_id(batch['id'])
-    write_once(RUN / 'batch.json', batch)
+    write_once(run / 'batch.json', batch)
     return batch
 
 
-def status():
-    job = read(RUN / 'batch.json')
+def status(run=RUN):
+    job = read(run / 'batch.json')
     value = json.loads(api('GET', 'batches/' + resource_id(job['id'])))
-    if value['id'] != job['id'] or value['input_file_id'] != read(RUN / 'upload.json')['id']:
+    if value['id'] != job['id'] or value['input_file_id'] != read(run / 'upload.json')['id']:
         raise ValueError('Receipt identifies a different batch')
     return value
 
 
-def collect(batch):
+def collect(batch, run=RUN):
     if batch['status'] not in TERMINAL:
         raise ValueError('The batch is still processing')
     # Save each completed download atomically so a partial response cannot be mistaken for a result.
@@ -94,10 +94,10 @@ def collect(batch):
         fid = batch.get(field)
         if not fid:
             continue
-        path = RUN / name
+        path = run / name
         if not path.exists():
             raw = api('GET', 'files/' + resource_id(fid) + '/content', limit=250_000_000)
-            temp = RUN / ('.' + name + '-' + uuid.uuid4().hex)
+            temp = run / ('.' + name + '-' + uuid.uuid4().hex)
             try:
                 with os.fdopen(os.open(temp, os.O_CREAT | os.O_EXCL | os.O_WRONLY, 0o600), 'wb') as handle:
                     handle.write(raw)
@@ -106,7 +106,7 @@ def collect(batch):
                 temp.unlink(missing_ok=True)
         file_hashes[name] = sha(path.read_bytes())
     receipt = {'batch': batch, 'files': file_hashes}
-    path = RUN / 'collection.json'
+    path = run / 'collection.json'
     if not path.exists():
         write_once(path, receipt)
     elif read(path)['files'] != file_hashes:

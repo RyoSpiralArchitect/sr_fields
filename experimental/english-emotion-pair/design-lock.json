@@ -1,0 +1,12 @@
+{
+  "features_sha256": "cd08e09125762e0623cc2914a051b5ee3852bef968b6d469632d6749324a09f1",
+  "input_jsonl_bytes": 107384658,
+  "input_jsonl_sha256": "6bda00800c3a43b811291fbbad689ac944d296f99a0954ddc861715c495dc247",
+  "masks_per_prompt": 4096,
+  "parent_features_sha256": "b38283ba930f93933d9ac310e9f00152352c632e9964eee1d1eb0a7e124003c1",
+  "parent_protocol_sha256": "f346e6c7db7dfbe918ccd4294f4be40b5920c9edfacfbd5dedc95e845ae9ab22",
+  "parent_requests_sha256": "5040fbb57fec75def9a6bc7848072f85ae166b0fdcc6f25ee2af61b98d39f504",
+  "plan_sha256": "852567ce35967a87bc2a671a729413bb25c172fbd21f218cdc04e95266f65cab",
+  "protocol_sha256": "0143d0ca13dfb01cfe86721148617152bd4aea562d7a007d36c072d0a69b208a",
+  "requests": 24576
+}
