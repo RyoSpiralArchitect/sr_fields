@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; base-uri 'none'; form-action 'none'">
+  <title>Three replies to one moment · sr_fields</title>
+  <style>
+    :root{--paper:#f8f7ef;--ink:#172f32;--muted:#4c6460;--rule:#c7d2c8;--teal:#16695f;--plum:#865269;--ochre:#966322}
+    *{box-sizing:border-box} body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 system-ui,sans-serif}
+    main,header,footer{max-width:72rem;margin:auto;padding:0 clamp(1rem,4vw,3.1rem)}
+    header{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding-top:1.25rem;padding-bottom:1.25rem;border-bottom:1px solid var(--rule)}
+    .brand{display:flex;align-items:center;gap:.55rem;font-weight:730;letter-spacing:.03em}.brand svg{width:1.65rem;height:1.65rem;color:var(--teal)}
+    button,select{background:#fffef8;color:var(--ink);border:1px solid #94a99f;border-radius:.38rem;padding:.38rem .68rem;font:inherit;cursor:pointer}
+    button:hover,select:hover{background:#e6eee7}button[aria-pressed=true]{background:var(--teal);color:white;border-color:var(--teal)}
+    a{color:#155e58;text-underline-offset:.18em}button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid #b27628;outline-offset:3px}
+    .languages{display:flex;gap:.25rem}.languages button{font-size:.84rem}
+    .intro{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(1.4rem,5vw,4rem);align-items:center;padding:clamp(2rem,5vw,4rem) 0}
+    h1,h2,h3,p,blockquote{margin:0}h1,h2{font-family:Georgia,'Noto Serif JP',serif;font-weight:550;letter-spacing:-.035em;line-height:1.14}
+    h1{font-size:clamp(2.5rem,5.1vw,4.4rem);max-width:12em}h2{font-size:clamp(1.6rem,3vw,2.25rem)}
+    h3{font-size:1.04rem}.intro p,.help,.note,footer{color:var(--muted)}.intro p{margin-top:.95rem;max-width:42rem}
+    .eyebrow{font-size:.74rem;letter-spacing:.13em;font-weight:750;color:var(--teal);margin-bottom:.6rem;text-transform:uppercase}
+    .overview{border-left:3px solid var(--teal);padding:.35rem 0 .35rem 1.2rem}.overview h2{font:650 1.05rem/1.4 system-ui,sans-serif;letter-spacing:0}
+    .rates{display:grid;gap:.55rem;margin:.8rem 0}.rate{display:grid;grid-template-columns:6.9rem minmax(3rem,1fr) 4.25rem;align-items:center;gap:.45rem;font-size:.9rem}
+    .track{height:.45rem;border-radius:1rem;background:#e2e6de}.fill{height:100%;display:block;border-radius:inherit}.rate strong{text-align:right;font-variant-numeric:tabular-nums}
+    .note{font-size:.84rem}.panel{border-top:1px solid var(--rule);padding:1.65rem 0}.help{margin-top:.48rem;font-size:.94rem}
+    .toolbar,.headrow,.links{display:flex;flex-wrap:wrap;align-items:center;gap:.55rem 1rem}.headrow{justify-content:space-between}.toolbar{margin:.85rem 0}
+    .toolbar label, .headrow label{font-size:.9rem}.toolbar .count{margin-left:auto;color:var(--teal);font-size:.87rem;font-weight:650}
+    fieldset{padding:0;margin:.85rem 0;border:0}legend{font-weight:660}.fields{display:flex;flex-wrap:wrap;gap:.36rem;margin:.4rem 0}
+    .fields label{display:inline-flex;gap:.36rem;align-items:center;border:1px solid var(--rule);border-radius:1rem;background:#fffef8;padding:.23rem .61rem;font-size:.84rem;cursor:pointer}
+    .fields label:has(input:checked){background:#dfede6;border-color:#99b9a8}.fields input{margin:0;accent-color:var(--teal)}
+    .replies{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.75rem;margin:1rem 0}
+    .reply{background:#fffef9;border:1px solid var(--rule);border-top:4px solid var(--color);border-radius:.3rem;padding:1rem;min-width:0}
+    .cue{font-weight:650;margin:.22rem 0 .9rem}.reply blockquote{font:normal 1.13rem/1.45 Georgia,serif;overflow-wrap:anywhere}.who{font-size:.74rem;font-weight:720;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);display:block;margin-bottom:.25rem}
+    details{margin-top:.8rem}summary{cursor:pointer;font-weight:600;color:var(--teal)}pre{white-space:pre-wrap;font:inherit;color:var(--muted);margin:.45rem 0}
+    .stats-table{width:100%;border-collapse:collapse;margin:1rem 0;table-layout:fixed;font-variant-numeric:tabular-nums}.stats-table th,.stats-table td{padding:.45rem .35rem;border-bottom:1px solid var(--rule);text-align:right}
+    .stats-table th:first-child{text-align:left;width:33%}.stats-table thead th{font-size:.85rem;color:var(--muted)}.stats-table tbody th{font-weight:550}
+    .next{background:#e9efe6;border-left:3px solid #849b77;padding:1rem 1.15rem;margin:1rem 0}.next p{margin:.4rem 0}
+    footer{padding-top:.3rem;padding-bottom:2.1rem;font-size:.88rem}.links{margin:.7rem 0}.download{font-weight:670}
+    @media(max-width:780px){.intro{grid-template-columns:1fr}.overview{max-width:35rem}.replies{grid-template-columns:1fr}.intro{padding-bottom:1.7rem}.toolbar .count{margin-left:0}}
+    @media(max-width:510px){.headrow{align-items:flex-start}.stats-table{font-size:.82rem}.stats-table thead th{font-size:.68rem;overflow-wrap:anywhere}.toolbar{gap:.4rem}.brand{font-size:.9rem}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand"><svg viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 16c-2-3 3-6 6-3 4 5-2 11-8 8C5 17 9 7 17 6c12-1 17 13 8 21C13 37-3 22 4 9" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>sr_fields</div>
+  <div class="languages" role="group" aria-label="Language / 言語"><button id="en" type="button" lang="en">English</button><button id="ja" type="button" lang="ja">日本語</button></div>
+</header>
+<main>
+  <section class="intro">
+    <div><div class="eyebrow" data-ja="SpiralReality 対話観測室">SpiralReality dialogue observatory</div>
+      <h1 data-ja="ひとつの場面、三つの返答">Three replies to one moment</h1>
+      <p data-ja="みんなが笑った瞬間を思い返すA。気持ちを明かさないとき、「恥ずかしかった」「うれしかった」と言ったとき、Bの一言はどう変わる？">A keeps thinking about the moment everyone laughed. How does B reply when A leaves their feeling open, says they felt embarrassed, or says they felt happy?</p>
+      <p class="note" data-ja="GPT-4.1 mini · 4,096通りのField構成 · 3つのseed · 36,864件の記録">GPT-4.1 mini · 4,096 Field combinations · three seeds · 36,864 recorded replies</p>
+    </div>
+    <div class="overview"><h2 data-ja="Bが疑問符を使った割合">How often did B use a question mark?</h2>
+      <div id="rates" class="rates"></div><small class="note" data-ja="各条件12,288件。数値は全Field構成での平均です。">12,288 replies per cue, averaged across all Field combinations.</small>
+    </div>
+  </section>
+  <section class="panel" aria-labelledby="reader-heading">
+    <div class="eyebrow" data-ja="返答を読み比べる">Recorded dialogue</div>
+    <div class="headrow"><h2 id="reader-heading" data-ja="同じField、同じseedで比べる">Compare the same Fields and seed</h2>
+      <label><span data-ja="生成の繰り返し（seed）">Repeat (seed)</span> <select id="seed"></select></label></div>
+    <p class="help" data-ja="Fieldを選ぶと、3つの発言に対する実際の英語の返答が並びます。ページのURLで今の選択を共有できます。">Choose the Fields to see B’s recorded reply to each cue. The page address keeps your selection.</p>
+    <fieldset><legend data-ja="有効なField">Enabled Fields</legend><div class="fields" id="fields"></div></fieldset>
+    <div class="toolbar"><button type="button" id="all" data-ja="全部ON">All on</button><button type="button" id="none" data-ja="全部OFF">All off</button><button type="button" id="gentle" data-ja="GentleFieldだけ">GentleField only</button><span class="count" id="selection"></span></div>
+    <div id="replies" class="replies" aria-live="polite" aria-atomic="true"></div>
+    <details><summary data-ja="共通の英語対話を読む">Read the shared English dialogue</summary><pre id="dialogue" lang="en"></pre></details>
+  </section>
+  <section class="panel" aria-labelledby="effects-heading">
+    <div class="eyebrow" data-ja="6,144組ずつの比較">6,144 matched pairs per Field and cue</div>
+    <div class="headrow"><h2 id="effects-heading" data-ja="Fieldをひとつ足すと">What changes when one Field is added?</h2>
+      <label><span data-ja="比較するField">Compare a Field</span> <select id="effect-field"></select></label></div>
+    <p class="help" data-ja="他の11個とseedが同じ組で、ONの割合からOFFの割合を引いた値です（ポイント）。">Each value is the percentage-point difference, ON minus OFF, with the other eleven Fields and seed held fixed.</p>
+    <table class="stats-table"><thead><tr id="table-head"></tr></thead><tbody id="table-body"></tbody></table>
+    <p class="note" data-ja="「わからない」は前回のバッチです。感情語を明かしていないため、その語の再使用率は対象外です。">The uncertain cue comes from the earlier batch. Exact emotion-word reuse is undefined when A gives no emotion word.</p>
+    <div class="links"><a id="report" href="https://github.com/RyoSpiralArchitect/sr_fields/blob/main/experimental/english-emotion-pair/observations.md" data-ja="実験レポート">Study report</a>
+      <a href="https://github.com/RyoSpiralArchitect/sr_fields/tree/main/experimental/english-emotion-pair/results" data-ja="集計データ">Measurement tables</a>
+      <a href="https://github.com/RyoSpiralArchitect/sr_fields/blob/main/experimental/english-emotion-pair/results/reading.csv" data-ja="144件の読解記録">144 blinded readings</a></div>
+  </section>
+  <aside class="next"><div class="eyebrow" data-ja="次の実験案 · 240件を予定">Proposed next experiment · 240 planned replies</div>
+    <h3 data-ja="誰が「面白い」と思った？">Who found it funny?</h3>
+    <p data-ja="Aがうれしくても、面白いと思ったのは誰だろう。笑いと笑顔を比べ、Aが面白さを明言・否定・保留したとき、Bがどんな前提を置くかを調べる案です。">A can feel happy while someone else is amused. Compare laughter with smiling, then vary whether A affirms, denies, or leaves their own amusement unstated.</p>
+    <a href="https://github.com/RyoSpiralArchitect/sr_fields/tree/main/experimental/who-found-it-funny" data-ja="提案と判定基準を読む">Read the proposed design</a>
+  </aside>
+  <noscript><p>This reader needs JavaScript to display recorded replies. The study report and measurement tables are available above.</p></noscript>
+</main>
+<footer><div class="links"><a class="download" id="download" href="./sr-fields-artifact.zip" download data-ja="オフライン版をダウンロード（ZIP）">Download offline reader (ZIP)</a>
+  <a href="./receipt.json" data-ja="公開記録">Artifact receipt</a><a href="https://github.com/RyoSpiralArchitect/sr_fields">GitHub · Apache-2.0</a></div>
+  <p data-ja="表示するのは公開用に抽出したモデルの返答です。選択はこのブラウザ内で切り替わります。">The reader shows published model responses. Selections run entirely in your browser.</p></footer>
+<script id="dataset" type="application/json">%%DATA%%</script>
+<script>
+'use strict';
+const d = JSON.parse(document.getElementById('dataset').textContent);
+const byId = id => document.getElementById(id);
+const make = name => document.createElement(name);
+const colors = ['#53756e','#865269','#966322'];
+const labels = {
+  en: {cases:['Uncertain','Embarrassed','Happy'], measures:['Question mark','Listed invitation','Exact word reuse'],measure:'Measure',a:'A said',b:'B replied',link:'Selection',word:'[cue shown above]'},
+  ja: {cases:['わからない','恥ずかしい','うれしい'],measures:['疑問符','誘い表現','感情語の再使用'],measure:'指標',a:'Aの発言',b:'Bの返答',link:'選択',word:'[上に表示したAの発言]'}
+};
+const translated = Array.from(document.querySelectorAll('[data-ja]'), node => [node,node.textContent]);
+const boxes = d.fields.map(name => {
+  const label=make('label'), box=make('input'); box.type='checkbox';
+  label.append(box,document.createTextNode(name)); byId('fields').append(label);
+  box.addEventListener('change',()=>{state.mask=boxes.reduce((m,b,i)=>b.checked?m|(1<<i):m,0); update();});
+  byId('effect-field').add(new Option(name,name));
+  return box;
+});
+d.seeds.forEach(s=>byId('seed').add(new Option(String(s),String(s))));
+function readState(){
+  const p = new URLSearchParams(location.hash.slice(1));
+  const mask = p.get('m'), seed = Number(p.get('s')), field = p.get('field');
+  return {mask:mask!==null && /^\d{1,4}$/.test(mask) && Number(mask)<4096?Number(mask):4095,
+          seed:d.seeds.includes(seed)?seed:202, lang:p.get('lang')==='ja'?'ja':'en', field:d.fields.includes(field)?field:'GentleField'};
+}
+let state = readState();
+function cell(tag, value){const node=make(tag);node.textContent=value;return node;}
+function render(){
+  const {lang,mask,seed,field}=state, t=labels[lang], ja=lang==='ja';
+  document.documentElement.lang=lang;
+  translated.forEach(([node,en])=>{node.textContent=ja?node.dataset.ja:en;});
+  document.title=(ja?'ひとつの場面、三つの返答':'Three replies to one moment')+' · sr_fields';
+  byId('en').setAttribute('aria-pressed',String(!ja));byId('ja').setAttribute('aria-pressed',String(ja));
+  byId('seed').value=String(seed);byId('effect-field').value=field;
+  boxes.forEach((b,i)=>{b.checked=Boolean(mask&(1<<i));});
+  byId('selection').textContent=t.link+' '+boxes.filter(b=>b.checked).length+' / 12 · #'+mask;
+  byId('dialogue').textContent=d.dialogue.replace(d.cues.uncertain,t.word);
+  byId('report').href='https://github.com/RyoSpiralArchitect/sr_fields/blob/main/experimental/english-emotion-pair/observations'+(ja?'.ja':'')+'.md';
+  if(location.protocol==='file:'){const a=byId('download');a.href=location.href.split('#')[0];a.download='sr-fields-three-replies.html';a.textContent=ja?'このHTMLを保存':'Save this HTML';}
+  const rates=byId('rates'),replies=byId('replies');rates.replaceChildren();replies.replaceChildren();
+  d.cases.forEach((c,i)=>{
+    const rate=d.rates[c], pct=100*rate.hits/rate.n, row=make('div'),track=make('span'),fill=make('span');
+    row.className='rate';track.className='track';fill.className='fill';fill.style.width=pct+'%';fill.style.background=colors[i];track.append(fill);
+    row.append(cell('span',t.cases[i]),track,cell('strong',pct.toFixed(2)+'%'));rates.append(row);
+    const card=make('article'),cue=cell('p',d.cues[c]),reply=cell('blockquote',d.forms[d.slots[mask][d.seeds.indexOf(seed)*3+i]]);
+    card.className='reply';card.style.setProperty('--color',colors[i]);cue.className='cue';cue.lang=reply.lang='en';
+    const a=cell('span',t.a),b=cell('span',t.b);a.className=b.className='who';card.append(a,cue,b,reply);replies.append(card);
+  });
+  const head=byId('table-head'),body=byId('table-body');head.replaceChildren();body.replaceChildren();
+  [t.measure,...t.cases].forEach(v=>{const h=cell('th',v);h.scope='col';head.append(h);});
+  ['question','invitation','echo_exact'].forEach((metric,i)=>{
+    const row=make('tr'),title=cell('th',t.measures[i]);title.scope='row';row.append(title);
+    d.cases.forEach(c=>{const v=d.effects[field][metric][c];row.append(cell('td',v===null?'—':(v>0?'+':'')+v.toFixed(2)));});body.append(row);
+  });
+}
+function update(){
+  const p=new URLSearchParams({m:String(state.mask),s:String(state.seed),lang:state.lang,field:state.field});
+  try{history.replaceState(null,'','#'+p);}catch{location.hash=p.toString();}render();
+}
+['en','ja'].forEach(lang=>{byId(lang).onclick=()=>{state.lang=lang;update();};});
+byId('all').onclick=()=>{state.mask=4095;update();};byId('none').onclick=()=>{state.mask=0;update();};
+byId('gentle').onclick=()=>{state.mask=1<<d.fields.indexOf('GentleField');update();};
+byId('seed').onchange=e=>{state.seed=Number(e.target.value);update();};
+byId('effect-field').onchange=e=>{state.field=e.target.value;update();};
+window.addEventListener('hashchange',()=>{state=readState();render();});render();
+</script>
+</body></html>

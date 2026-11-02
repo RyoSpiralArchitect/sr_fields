@@ -2,6 +2,8 @@
 
 [Findings in English](observations.md) · [日本語の結果](observations.ja.md) · [Full comparison figure](results/field-by-prompt.svg)
 
+[Open the bilingual public reader](https://ryospiralarchitect.github.io/sr_fields/) · [Offline ZIP](https://ryospiralarchitect.github.io/sr_fields/sr-fields-artifact.zip) · [Next experiment proposal](../who-found-it-funny/README.md)
+
 This experiment extends the [English powerset](../english-powerset/observations.md). The original dialogue used “I don't know.” The two new versions use “I felt embarrassed.” and “I felt happy.” Everything else in the user message and all 4,096 system messages are identical across prompts. Each combination has three seed slots. The 24,576 new requests share one Batch job, with both prompts adjacent within each mask/seed block. The 12,288 uncertain replies come from the earlier batch.
 
 The [plan](plan.md), [protocol](protocol.json), [English markers](measures.py) and [design lock](design-lock.json) specify the questions and fixed inputs. The [reading guide](reading-guide.md) gives examples for the blinded language assessment. The [data dictionary](results/README.md) lists the measurement files.

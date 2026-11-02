@@ -4,6 +4,8 @@
 
 [English README](../README.md) · [3層の構成](architecture.md) · [プロンプトの追加](../prompts/README.md)
 
+[**公開artifactを日本語で開く**](https://ryospiralarchitect.github.io/sr_fields/#lang=ja)と、36,864件の記録を同じField・同じseedで読み比べられます。[オフライン版ZIP](https://ryospiralarchitect.github.io/sr_fields/sr-fields-artifact.zip) · [次の実験案「誰が面白いと思った？」](../experimental/who-found-it-funny/README.md)
+
 ## 起動する
 
 Python 3.10以降で、Repoのルートから実行します。追加パッケージは不要です。

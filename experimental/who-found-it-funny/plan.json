@@ -1,0 +1,14 @@
+{
+  "status": "proposed",
+  "model": "gpt-4.1-mini-2025-04-14",
+  "template": "A: On my way home, I kept thinking about the moment the others {reaction}.\nB: Did it bother you?\nA: I felt happy.{stance} That moment is still on my mind.\nWrite only B's next line as one natural English sentence.",
+  "reactions": {"laughter": "laughed", "smile": "smiled"},
+  "stances": {"unstated": "", "affirmed": " I found it funny.", "denied": " I didn't find it funny."},
+  "field_sets": [[], ["GentleField"], ["ThresholdField"], ["ThresholdField", "GentleField"]],
+  "seeds": [419, 557, 683, 809, 947, 1061, 1213, 1361, 1493, 1627],
+  "temperature": 0.8,
+  "top_p": 1,
+  "max_completion_tokens": 64,
+  "attempts_per_slot": 1,
+  "planned_slots": 240
+}

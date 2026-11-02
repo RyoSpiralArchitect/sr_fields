@@ -4,6 +4,8 @@ The SpiralReality Field Observatory is a local workbench for exploring when to l
 
 [日本語](docs/README.ja.md) · [Architecture](docs/architecture.md) · [Prompt design](prompts/README.md) · [Evidence](data/README.md) · [Bilingual composition](docs/bilingual-composition.md)
 
+[**Open the research artifact**](https://ryospiralarchitect.github.io/sr_fields/) to compare all 36,864 recorded replies by Field set and seed. [Offline ZIP](https://ryospiralarchitect.github.io/sr_fields/sr-fields-artifact.zip) · [Publication data](artifact/README.md) · [Next experiment proposal](experimental/who-found-it-funny/README.md)
+
 The repository connects three layers:
 
 | Layer | Location | Responsibility |
