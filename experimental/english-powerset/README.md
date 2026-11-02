@@ -27,3 +27,15 @@ python3 -I -S experimental/english-powerset/batch.py collect
 Use an existing process-level `OPENAI_API_KEY` for the three Batch commands. All provider files, raw responses and receipts stay under ignored `.runs/english-powerset/`. Exclusive dispatch markers prevent accidental resubmission. Status and collection issue GETs only. A failed or expired slot is not retried. Submissions with an ambiguous outcome require reconciliation with the provider.
 
 The [Batch API](https://developers.openai.com/api/docs/guides/batch) allows a 24-hour completion window. On the planning date, the listed batch rates per million tokens were USD 0.20 input and USD 0.80 output. Completion of all slots can use at most 786,432 output tokens. Use returned usage for the final token-price estimate. [OpenAI pricing](https://developers.openai.com/api/docs/pricing)
+
+After collection, these commands run locally without making any requests:
+
+```sh
+python3 -I -S experimental/english-powerset/analyze.py
+python3 -I -S experimental/english-powerset/verify.py
+python3 -I -S experimental/english-powerset/reader.py
+# Optional: a separate Python environment with Matplotlib
+python3 -I experimental/english-powerset/plot.py
+```
+
+Analysis saves a per-slot measurement table and aggregate CSVs in `results/`. The verifier reconstructs the two- and four-condition comparisons using SQL from those shareable measurements; it does not require the raw replies or an API key. The local file `.runs/english-powerset/eligible-replies.csv` joins the actual line, named selection, seed, and measurements. Open the generated `.runs/english-powerset/compare-replies.html` to switch one Field and read the two recorded replies at each seed. The offline reader contains the English lines, and stays in the private run directory alongside the raw provider envelopes.
