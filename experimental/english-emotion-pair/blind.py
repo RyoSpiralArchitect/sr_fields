@@ -3,9 +3,11 @@ import argparse
 import csv
 import hashlib
 import json
+import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+sys.path.insert(0, str(HERE))
 RUN = HERE.parents[1] / '.runs' / HERE.name
 CASES = ('uncertain', 'embarrassed', 'happy')
 CODES = {'OPEN', 'OFFER', 'ASSUME', 'UNCLEAR'}

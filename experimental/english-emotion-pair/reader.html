@@ -1,0 +1,41 @@
+<!doctype html><html lang="en"><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Three replies to one moment · sr_fields</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#faf9f4;color:#213b3d;font:16px/1.5 system-ui,sans-serif}main{max-width:68rem;margin:auto;padding:2rem 1.2rem 4rem}header small{font-size:.78rem;font-weight:700;letter-spacing:.14em;color:#49726c}h1{font:600 clamp(2rem,5vw,3.2rem)/1.1 Georgia,serif;margin:.65rem 0}h2{font-size:1.2rem;margin:0 0 .55rem}p{margin:.4rem 0}section,details{background:#fffefa;border:1px solid #cfd9cf;border-radius:.6rem;margin:1.2rem 0;padding:1.1rem}summary,button{cursor:pointer}pre{white-space:pre-wrap;font:inherit}fieldset{border:0;padding:0;margin:.4rem 0}legend{font-weight:600}#checks{display:flex;flex-wrap:wrap;gap:.35rem .85rem;margin:.6rem 0}label{display:inline-flex;align-items:center;gap:.3rem}button{border:1px solid #91aca2;border-radius:.35rem;background:#fffefa;color:inherit;font:inherit;padding:.3rem .6rem;margin:0 .3rem .1rem 0}button:hover{background:#eaf2eb}input{accent-color:#176c67}button:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid #237b78;outline-offset:2px}.seed{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.65rem 1rem;border-top:1px solid #d3ddd5;margin-top:.8rem;padding-top:.7rem}.seed h3{grid-column:1/-1;font-size:.9rem;margin:0;color:#50726e}.reply{padding:.1rem .6rem;border-left:3px solid #889b99}.reply:nth-of-type(2){border-color:#a76d86}.reply:nth-of-type(3){border-color:#329486}.reply strong{font:600 1rem Georgia,serif;color:#263f41}.note,footer{color:#566967;font-size:.9rem}@media(max-width:700px){.seed{grid-template-columns:1fr}.seed h3{grid-column:auto}}
+</style>
+<main><header><small>SR_FIELDS &nbsp; / &nbsp; ENGLISH DIALOGUE EXPERIMENT</small>
+<h1>Three replies to one moment</h1><p>Compare what B says when A leaves their feeling open, names embarrassment, or names happiness.</p></header>
+<details><summary>Read the shared dialogue</summary><pre id="dialogue"></pre></details>
+<section><h2>Hold the Field set constant</h2><fieldset><legend>Fields enabled in all three columns</legend><div id="checks"></div>
+<button type="button" id="none">Clear all</button><button type="button" id="all">Select all</button></fieldset></section>
+<section><h2>Recorded replies</h2><p class="note" id="count"></p><div id="rows" aria-live="polite"></div></section>
+<footer>Each row uses the same seed and Field set. The uncertain column was collected in the earlier batch. This file works offline.</footer></main>
+<script type="application/json" id="payload">%%REPLIES%%</script>
+<script>
+'use strict';
+const byId = id => document.getElementById(id);
+const make = tag => document.createElement(tag);
+const d = JSON.parse(byId('payload').textContent);
+byId('dialogue').textContent = d.dialogue.replace(d.cues.uncertain,'[one of the three sentences below]');
+const boxes = d.fields.map(name => {
+ const label=make('label'), input=make('input');input.type='checkbox';input.addEventListener('change',draw);
+ label.append(input,document.createTextNode(name));byId('checks').append(label);return input;
+});
+function draw(){
+ let mask=0;const on=[];
+ boxes.forEach((box,i)=>{if(box.checked){mask|=1<<i;on.push(d.fields[i]);}});
+ byId('count').textContent=(on.length?on.join(' · '):'Common instructions only')+'  (mask '+mask+')';
+ const rows=byId('rows');rows.replaceChildren();
+ d.seeds.forEach((seed,j)=>{
+   const row=make('div'),h=make('h3');row.className='seed';h.textContent='Seed '+seed;row.append(h);
+   d.cases.forEach((c,k)=>{
+     const card=make('div'),cue=make('strong'),quote=make('p');card.className='reply';
+     cue.textContent='A: '+d.cues[c];quote.textContent=d.lines[mask][j][k];card.append(cue,quote);row.append(card);
+   });rows.append(row);
+ });
+}
+byId('none').onclick=()=>{boxes.forEach(b=>b.checked=false);draw();};
+byId('all').onclick=()=>{boxes.forEach(b=>b.checked=true);draw();};draw();
+</script></html>

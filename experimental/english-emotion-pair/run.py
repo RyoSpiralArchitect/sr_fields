@@ -11,6 +11,7 @@ HERE = Path(__file__).resolve().parent
 PARENT = HERE.parent / 'english-powerset'
 RUN = HERE.parents[1] / '.runs' / HERE.name
 sys.path.insert(0, str(PARENT))
+sys.path.insert(1, str(HERE))
 import batch
 import design
 from design import packed, read, sha
@@ -92,6 +93,9 @@ def main():
         lock = read(HERE / 'design-lock.json')
         if any(lock.get(k) != v for k, v in bindings().items()):
             raise ValueError('Protocol or analysis definitions differ from the design lock')
+        if not (RUN/'upload.json').exists():
+            from multipart import main as upload_parts
+            upload_parts()
         record = batch.submit(HERE, RUN, experiment=HERE.name, expected=24576, measure_file='measures.py')
     else:
         record = batch.status(RUN)

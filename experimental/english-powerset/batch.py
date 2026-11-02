@@ -14,13 +14,16 @@ from design import HERE, RUN, packed, read, sha, write_once
 TERMINAL = {'completed', 'expired', 'cancelled', 'failed'}
 
 
-def api(method, path, body=None, content_type='application/json', limit=4_000_000, timeout=120):
+def api(method, path, body=None, content_type='application/json', limit=4_000_000, timeout=120, content_length=None):
     key = os.environ.get('OPENAI_API_KEY')
     if not key:
         raise ValueError('OPENAI_API_KEY is missing')
     conn = http.client.HTTPSConnection('api.openai.com', timeout=timeout, context=ssl.create_default_context())
     try:
-        conn.request(method, '/v1/' + path, body, {'Authorization': 'Bearer ' + key, 'Content-Type': content_type})
+        headers = {'Authorization': 'Bearer ' + key, 'Content-Type': content_type}
+        if content_length is not None:
+            headers['Content-Length'] = str(content_length)
+        conn.request(method, '/v1/' + path, body, headers)
         res = conn.getresponse()
         if res.status != 200 and res.status != 201:
             raw = res.read(8192)
