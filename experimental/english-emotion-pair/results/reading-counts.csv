@@ -1,0 +1,16 @@
+case,code,count,sampled,with_question_mark,with_listed_emotion
+uncertain,OPEN,43,48,41,0
+uncertain,OFFER,5,48,3,0
+uncertain,ASSUME,0,48,0,0
+uncertain,UNCLEAR,0,48,0,0
+uncertain,MISSING,0,48,0,0
+embarrassed,OPEN,33,48,30,4
+embarrassed,OFFER,10,48,5,4
+embarrassed,ASSUME,4,48,4,0
+embarrassed,UNCLEAR,1,48,0,1
+embarrassed,MISSING,0,48,0,0
+happy,OPEN,28,48,3,17
+happy,OFFER,13,48,0,5
+happy,ASSUME,7,48,5,6
+happy,UNCLEAR,0,48,0,0
+happy,MISSING,0,48,0,0

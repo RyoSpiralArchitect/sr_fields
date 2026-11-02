@@ -56,6 +56,8 @@ python3 -I -S experimental/naming-hold/run.py
 
 The [English dialogue experiment](experimental/english-powerset/observations.md) covers all 4,096 subsets (including all-off) at three seeds using GPT-4.1 mini. In 12,288 completed replies, adding GentleField raised the question-mark rate from 64.0% to 90.7% at matched settings. See the [paired contrasts and data](experimental/english-powerset/results/README.md); one English dialogue does not establish usefulness or transfer to other inputs.
 
+A [two-prompt follow-up](experimental/english-emotion-pair/observations.md) added 24,576 completed replies. Changing A's stated feeling from *embarrassed* to *happy* moved the question-mark rate from 82.83% to 8.40%. The study includes paired Field comparisons, lexical decoding and 144 blinded readings of what the replies took for granted.
+
 ## Optional OpenAI execution
 
 The runtime reads an existing `OPENAI_API_KEY` from its process environment. It does not read or write credential files, return the key to the browser, or accept keys through the UI. Use your existing secure credential setup to provide it to the launching process.

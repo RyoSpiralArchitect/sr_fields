@@ -1,0 +1,4 @@
+from_case,to_case,matched_slots,same_word_sequences,mean_word_set_jaccard
+embarrassed,happy,12288,1,0.11635664815138258
+uncertain,embarrassed,12288,8,0.2558333644141115
+uncertain,happy,12288,0,0.1488322284569002

@@ -37,6 +37,8 @@ def main():
         for pos,k in enumerate(keys):
             r = rows[k]
             scale = 1 if k=='words' else 100
+            if r['unit']!=('words' if k=='words' else 'pp'):
+                raise ValueError('Measurement unit differs')
             total = count = 0
             for s in SEEDS:
                 found = by_seed.get(s,[0,None]*len(keys))

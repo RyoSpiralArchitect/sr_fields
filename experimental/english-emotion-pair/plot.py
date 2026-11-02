@@ -20,7 +20,7 @@ def main():
         lookup = {(r['field'],r['case'],r['measure']):float(r['delta']) for r in csv.DictReader(f) if r['delta']!=''}
     panels = [('Question mark','question',['uncertain','embarrassed','happy']),
               ('Invitation phrase','invitation',['uncertain','embarrassed','happy']),
-              ("A’s exact emotion word",'echo_exact',['embarrassed','happy'])]
+              ('Exact word reuse','echo_exact',['embarrassed','happy'])]
     matrices = [np.array([[lookup.get((field,case,metric),np.nan) for case in cases] for field in fields])
                 for _,metric,cases in panels]
     with (RESULTS/'rates.csv').open(newline='') as f:
@@ -53,7 +53,7 @@ def main():
     cax=fig.add_axes([.29,.126,.48,.020])
     fig.colorbar(plt.cm.ScalarMappable(norm=norm,cmap=cmap),cax=cax,orientation='horizontal',
                  ticks=[-extent,-extent/2,0,extent/2,extent]).ax.tick_params(labelsize=8,length=2)
-    fig.text(.046,.052,'Numbers are percentage-point changes, Field ON minus OFF, matched on the other 11 Fields and seed.',
+    fig.text(.046,.052,'Field ON minus OFF in percentage points, matched on the other 11 Fields and seed. Values rounded to 0.1 point.',
              fontsize=10,color='#405253')
     fig.text(.046,.025,'Uncertain is the earlier run. Exact emotion-word reuse is defined only for the two explicit feelings.',
              fontsize=9,color='#506566')

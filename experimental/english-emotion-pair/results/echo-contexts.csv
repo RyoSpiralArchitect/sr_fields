@@ -1,0 +1,9 @@
+case,local_context,slots,exact_echo_slots,share_of_exact_echoes
+embarrassed,you_pattern,1927,1930,0.9984455958549223
+embarrassed,i_pattern,0,1930,0.0
+embarrassed,both,0,1930,0.0
+embarrassed,unassigned,3,1930,0.0015544041450777201
+happy,you_pattern,5794,6347,0.9128722230975264
+happy,i_pattern,0,6347,0.0
+happy,both,0,6347,0.0
+happy,unassigned,553,6347,0.08712777690247361

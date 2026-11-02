@@ -4,6 +4,7 @@ from itertools import combinations
 from pathlib import Path
 import csv
 import math
+import re
 import statistics
 import sys
 
@@ -20,13 +21,15 @@ def arrays(rows):
     shape = (4096, len(SEEDS), len(METRICS))
     values = {case: np.full(shape, np.nan) for case in CASES}
     texts = {case: {} for case in CASES}
+    fingerprints = {case: np.full(shape[:2], '',dtype=object) for case in CASES}
     for row in rows:
         if row['status'] != 'completed':
             continue
         case, mask, seed = row['case'], int(row['mask']), int(row['seed'])
         values[case][mask, SEEDS.index(seed)] = [float(row[k]) if row[k] != '' else np.nan for k in METRICS]
+        fingerprints[case][mask, SEEDS.index(seed)] = row['backend']
         texts[case][mask,seed] = tuple(words(row['reply']))
-    return values, texts
+    return values, texts, fingerprints
 
 
 def estimates(label, diffs, measures=METRICS):
@@ -47,11 +50,15 @@ def estimates(label, diffs, measures=METRICS):
     return rows
 
 
-def factorial(values):
+def factorial(values, fingerprints):
     masks = np.arange(4096)
-    single, pairs, switches, stimuli = [], [], [], []
+    single, pairs, switches, stimuli, sensitivity = [], [], [], [], []
     for first, second in COMPARISONS:
-        stimuli.extend(estimates({'from_case':first,'to_case':second}, values[second]-values[first]))
+        delta=values[second]-values[first]
+        label={'from_case':first,'to_case':second}
+        stimuli.extend(estimates(label,delta))
+        same=(fingerprints[first]!='') & (fingerprints[first]==fingerprints[second])
+        sensitivity.extend(estimates(label,np.where(same[:,:,None],delta,np.nan)))
     for i, field in enumerate(FIELDS):
         bit = 1 << i
         off = masks[(masks & bit)==0]
@@ -68,7 +75,8 @@ def factorial(values):
             delta = a[off|x|y] - a[off|x] - a[off|y] + a[off]
             pairs.extend(estimates({'case':case,'first':FIELDS[i],'second':FIELDS[j]}, delta, OLD_METRICS))
     for name, data in [('field-effects',single),('field-pairs',pairs),
-                       ('field-by-prompt',switches),('prompt-differences',stimuli)]:
+                       ('field-by-prompt',switches),('prompt-differences',stimuli),
+                       ('fingerprint-matched-prompts',sensitivity)]:
         save_csv(RESULTS/(name+'.csv'), data)
 
 
@@ -122,11 +130,33 @@ def describe(values, texts):
         save_csv(RESULTS/(name+'.csv'),entries)
 
 
+def echo_contexts(texts):
+    """Exploratory local word contexts. Unassigned mentions include legitimate paraphrases or ellipsis."""
+    result=[]
+    modifier=r'(?:(?:so|really|very|quite|pretty|rather|a little|a bit) )?'
+    for case in ('embarrassed','happy'):
+        you=re.compile(r"\b(?:(?:you (?:felt|feel|were|are|seemed|seem)|you're) |(?:made|makes|left) you (?:feel(?:ing)? )?)"+modifier+case+r'\b')
+        speaker=re.compile(r"\b(?:i (?:am|felt|feel|was)|i'm) "+modifier+case+r'\b')
+        contexts=Counter()
+        for tokens in texts[case].values():
+            if case not in tokens: continue
+            line=' '.join(tokens)
+            a,b=bool(you.search(line)),bool(speaker.search(line))
+            code='both' if a and b else 'you_pattern' if a else 'i_pattern' if b else 'unassigned'
+            contexts[code]+=1
+        n=sum(contexts.values())
+        for code in ('you_pattern','i_pattern','both','unassigned'):
+            result.append({'case':case,'local_context':code,'slots':contexts[code],'exact_echo_slots':n,
+                           'share_of_exact_echoes':contexts[code]/n if n else None})
+    save_csv(RESULTS/'echo-contexts.csv',result)
+
+
 def main():
     with (RUN/'replies.csv').open(newline='') as f:
-        values,texts = arrays(csv.DictReader(f))
-    factorial(values)
+        values,texts,fingerprints = arrays(csv.DictReader(f))
+    factorial(values,fingerprints)
     describe(values,texts)
+    echo_contexts(texts)
     print('Measured three prompts, twelve Field differences and 66 Field interactions per prompt.')
 
 

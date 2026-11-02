@@ -55,6 +55,8 @@ python3 -I -S experimental/naming-hold/run.py
 
 英語の実験では、全4,096条件を各3つのseedで試し、12,288件すべての返答を得ました。他のFieldとseedを揃えてGentleFieldを足すと、この場面では疑問符を含む返答が64.0%から90.7%に増えました。[日本語の観察メモと実際の英文](../experimental/english-powerset/observations.ja.md) · [全12個の集計](../experimental/english-powerset/results/field-contrasts.csv)
 
+続いて「恥ずかしかった」「うれしかった」の一語を変えた2条件を加え、さらに24,576件を比較しました。疑問符のある返答はそれぞれ82.83%と8.40%でした。2条件で逆向きに出たFieldの差と、本人が言っていない前提を調べた144件の読みを収録しています。[3条件の日本語レポート](../experimental/english-emotion-pair/observations.ja.md)
+
 ## 自分の言葉で1回試す
 
 既存の安全な方法で、サーバーを起動する環境に `OPENAI_API_KEY` を渡したうえで実行します。アプリにキーを入力する欄はありません。

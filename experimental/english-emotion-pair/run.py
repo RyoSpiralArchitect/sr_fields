@@ -94,8 +94,8 @@ def main():
         if any(lock.get(k) != v for k, v in bindings().items()):
             raise ValueError('Protocol or analysis definitions differ from the design lock')
         if not (RUN/'upload.json').exists():
-            from multipart import main as upload_parts
-            upload_parts()
+            from stream_file import main as upload_stream
+            upload_stream()
         record = batch.submit(HERE, RUN, experiment=HERE.name, expected=24576, measure_file='measures.py')
     else:
         record = batch.status(RUN)

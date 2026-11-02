@@ -1,8 +1,7 @@
 """Reconcile private provider files to both frozen designs, then extract one row per slot."""
-import csv
 from collections import Counter
+from datetime import datetime, timezone
 import json
-import os
 import sys
 from pathlib import Path
 
@@ -62,10 +61,17 @@ def consume(root, lock, keys, *, historical=False):
         mapped = measure(reply, case) if state == 'completed' else dict.fromkeys(METRICS)
         rows.append({'case': case, 'mask': mask, 'seed': seed, 'active': mask.bit_count(),
                      'status': state, 'backend': fingerprint, 'reply': reply, **mapped})
-    return rows, {'provider': batch['request_counts'], 'status': batch['status'],
-                  'submitted_epoch': batch.get('created_at'), 'completed_epoch': batch.get('completed_at'),
+    prices=PREVIOUS['batch_usd_per_million']
+    cost={case:(tokens['input']*prices['input']+tokens['output']*prices['output'])/1_000_000
+          for case,tokens in usage.items()}
+    times={k:datetime.fromtimestamp(batch[k],timezone.utc).isoformat() for k in
+           ('created_at','in_progress_at','finalizing_at','completed_at','expired_at','failed_at','cancelled_at')
+           if isinstance(batch.get(k),int)}
+    return rows, {'provider': batch['request_counts'], 'status': batch['status'],'times_utc':times,
                   'files_sha256': receipt['files'], 'requests_sha256': lock['input_jsonl_sha256'],
-                  'statuses': statuses, 'usage': usage, 'backends': backends}
+                  'statuses': statuses, 'usage': usage, 'backends': backends,
+                  'listed_cost_usd_for_reported_usage_by_case':cost,
+                  'listed_cost_usd_for_reported_usage':sum(cost.values())}
 
 
 def main():

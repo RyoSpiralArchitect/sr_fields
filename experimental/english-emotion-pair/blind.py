@@ -31,6 +31,7 @@ def positions():
 
 
 def prepare():
+    import run
     with (RUN / 'replies.csv').open(newline='') as f:
         rows = {(r['case'], int(r['mask']), int(r['seed'])):r for r in csv.DictReader(f)}
     path = RUN / 'blind-lines.jsonl'
@@ -43,12 +44,24 @@ def prepare():
         raise ValueError('Existing blinded sample differs')
     path.write_text(encoded)
     path.chmod(0o600)
+    sample_receipt={'blind_lines_sha256':digest(encoded),'selection_sha256':digest(json.dumps(positions())),
+                    'slots':len(items)}
+    receipt=RUN/'blind-sample-lock.json'
+    if receipt.exists():
+        if run.read(receipt)!=sample_receipt:
+            raise ValueError('Blinded sample receipt differs')
+    else:
+        run.design.write_once(receipt,sample_receipt)
     print('Prepared', len(items), 'blinded reading slots')
 
 
 def reveal():
     import run
-    sample = [json.loads(line) for line in (RUN / 'blind-lines.jsonl').read_text().splitlines()]
+    encoded=(RUN / 'blind-lines.jsonl').read_text()
+    receipt=run.read(RUN/'blind-sample-lock.json')
+    if receipt['blind_lines_sha256']!=digest(encoded) or receipt['selection_sha256']!=digest(json.dumps(positions())):
+        raise ValueError('Reading sample changed before the labels were locked')
+    sample = [json.loads(line) for line in encoded.splitlines()]
     source = RUN / 'blind-labels.csv'
     checksum = hashlib.sha256(source.read_bytes()).hexdigest()
     with source.open(newline='') as file:
@@ -56,14 +69,14 @@ def reveal():
     if [int(r['id']) for r in labels] != list(range(1, len(sample)+1)) or len(sample) != 144:
         raise ValueError('Labels must cover all sampled slots in their original blind order')
     for row, rec in zip(labels, sample):
-        if row['code'] not in (CODES if rec['status'] == 'completed' else {'MISSING'}):
+        if row['code'] not in (CODES if rec['status'] == 'completed' else {'MISSING'}) or not row['note'].strip():
             raise ValueError('Invalid label or unavailable response')
     lock_path = RUN / 'blind-label-lock.json'
     if lock_path.exists():
         if run.read(lock_path)['sha256'] != checksum:
             raise ValueError('The original labels have changed')
     else:
-        run.design.write_once(lock_path, {'sha256': checksum})
+        run.design.write_once(lock_path, {'sha256': checksum,'blind_lines_sha256':digest(encoded)})
     dest = HERE / 'results' / 'reading.csv'
     with dest.open('w', newline='') as file:
         writer = csv.writer(file, lineterminator='\n')

@@ -17,7 +17,14 @@ def record_verified_file(file):
     raw = batch.api('GET','files/'+batch.resource_id(file['id'])+'/content',limit=120_000_000,timeout=300)
     if sha(raw) != lock['input_jsonl_sha256']:
         raise ValueError('Downloaded provider input differs')
-    design.write_once(RUN/'verified-file.json',{'file':file,'sha256':sha(raw),'bytes':len(raw)})
+    evidence={'file':file,'sha256':sha(raw),'bytes':len(raw)}
+    prior=RUN/'verified-file.json'
+    if prior.exists():
+        existing=read(prior)
+        if (existing['file']['id'],existing['sha256'],existing['bytes'])!=(file['id'],evidence['sha256'],len(raw)):
+            raise ValueError('Existing verified file receipt differs')
+    else:
+        design.write_once(prior,evidence)
     design.write_once(RUN/'upload.json',file)
 
 
