@@ -1,5 +1,7 @@
 # Twelve Fields, three seeds, one English dialogue
 
+**Completed run:** [observations in English](observations.md) · [日本語](observations.ja.md) · [data dictionary and CSVs](results/README.md). All 12,288 planned responses are accounted for.
+
 This experiment asks how enabling a named Field policy changes the wording of B's next line in a fixed dialogue about a moment of laughter. The English user message is identical in every request. Each Field retains its catalog position. The 4,095 nonempty subsets use the public structured compiler. With all Fields off, the model receives only the same English common instructions. Those instructions already ask the model to leave unsettled meaning open.
 
 The [protocol](protocol.json) fixes GPT-4.1 mini's dated snapshot, temperature 0.8, top-p 1, seeds 101/202/303 and a 64-token output cap. One generation per mask and seed gives 12,288 slots. IDs are shuffled by a reproducible hash before submission. The [design lock](design-lock.json) binds the complete request file, protocol and frozen [English measures](features.py). The [Chat Completions seed](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create) is best effort. Collection records returned models and backend fingerprints.
@@ -33,6 +35,8 @@ After collection, these commands run locally without making any requests:
 ```sh
 python3 -I -S experimental/english-powerset/analyze.py
 python3 -I -S experimental/english-powerset/verify.py
+python3 -I -S experimental/english-powerset/context_count.py
+python3 -I -S experimental/english-powerset/fingerprint_check.py
 python3 -I -S experimental/english-powerset/reader.py
 # Optional: a separate Python environment with Matplotlib
 python3 -I experimental/english-powerset/plot.py

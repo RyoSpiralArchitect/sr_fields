@@ -68,7 +68,9 @@ def main():
              color=ink, fontsize=10.4)
     fig.text(.047, .048, 'Axes use separate scales.  Word and punctuation markers describe these replies; they do not score dialogue quality.',
              color=soft, fontsize=9.8)
-    fig.savefig(RESULTS / 'primary-contrasts.svg', format='svg', metadata={'Date': None})
+    svg = RESULTS / 'primary-contrasts.svg'
+    fig.savefig(svg, format='svg', metadata={'Date': None})
+    svg.write_text('\n'.join(line.rstrip() for line in svg.read_text().splitlines()) + '\n')
     LOCAL.mkdir(parents=True, exist_ok=True)
     fig.savefig(LOCAL / 'primary-contrasts.png', format='png', dpi=145)
     plt.close(fig)
